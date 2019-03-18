@@ -1,0 +1,25 @@
+
+<!doctype html>
+<html>
+  <head>
+  	<meta charset="UTF-8">
+  	<script src="https://d3js.org/d3.v5.min.js"></script>
+  </head>
+  <body>
+  </body>
+  <script type="text/javascript">
+  	
+  	var width = window.innerWidth;
+  	var height = window.innerHeight;
+
+  	var svg = d3.select('body')
+  		.append('svg')
+  		.attr('width', width)
+  		.attr('height', height);
+
+  	d3.json('data/laura-short-term-top-artists.json').then(function(data, error){
+      console.log(data)
+    })
+
+  </script>
+</html>
