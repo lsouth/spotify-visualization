@@ -2,46 +2,11 @@
   "items": [
     {
       "external_urls": {
-        "spotify": "https://open.spotify.com/artist/00FQb4jTyendYWaN8pK0wa"
-      },
-      "followers": {
-        "href": null,
-        "total": 7777235
-      },
-      "genres": [
-        "pop"
-      ],
-      "href": "https://api.spotify.com/v1/artists/00FQb4jTyendYWaN8pK0wa",
-      "id": "00FQb4jTyendYWaN8pK0wa",
-      "images": [
-        {
-          "height": 640,
-          "url": "https://i.scdn.co/image/56a3782b07eab32b5340f164c566349450ee84cd",
-          "width": 640
-        },
-        {
-          "height": 320,
-          "url": "https://i.scdn.co/image/7891384e95fa3c1a7020645ae790c7924f7ae1dc",
-          "width": 320
-        },
-        {
-          "height": 160,
-          "url": "https://i.scdn.co/image/79e5bc2897ca24249707294d1e9324441bda97af",
-          "width": 160
-        }
-      ],
-      "name": "Lana Del Rey",
-      "popularity": 82,
-      "type": "artist",
-      "uri": "spotify:artist:00FQb4jTyendYWaN8pK0wa"
-    },
-    {
-      "external_urls": {
         "spotify": "https://open.spotify.com/artist/06HL4z0CvFAxyc27GXpf02"
       },
       "followers": {
         "href": null,
-        "total": 17673523
+        "total": 18536365
       },
       "genres": [
         "dance pop",
@@ -74,11 +39,90 @@
     },
     {
       "external_urls": {
+        "spotify": "https://open.spotify.com/artist/00FQb4jTyendYWaN8pK0wa"
+      },
+      "followers": {
+        "href": null,
+        "total": 7915479
+      },
+      "genres": [
+        "dance pop",
+        "pop"
+      ],
+      "href": "https://api.spotify.com/v1/artists/00FQb4jTyendYWaN8pK0wa",
+      "id": "00FQb4jTyendYWaN8pK0wa",
+      "images": [
+        {
+          "height": 640,
+          "url": "https://i.scdn.co/image/56a3782b07eab32b5340f164c566349450ee84cd",
+          "width": 640
+        },
+        {
+          "height": 320,
+          "url": "https://i.scdn.co/image/7891384e95fa3c1a7020645ae790c7924f7ae1dc",
+          "width": 320
+        },
+        {
+          "height": 160,
+          "url": "https://i.scdn.co/image/79e5bc2897ca24249707294d1e9324441bda97af",
+          "width": 160
+        }
+      ],
+      "name": "Lana Del Rey",
+      "popularity": 83,
+      "type": "artist",
+      "uri": "spotify:artist:00FQb4jTyendYWaN8pK0wa"
+    },
+    {
+      "external_urls": {
+        "spotify": "https://open.spotify.com/artist/1r1uxoy19fzMxunt3ONAkG"
+      },
+      "followers": {
+        "href": null,
+        "total": 91165
+      },
+      "genres": [
+        "art pop",
+        "chamber pop",
+        "electropop",
+        "folk-pop",
+        "indie folk",
+        "indie pop",
+        "indie rock",
+        "modern rock",
+        "new americana"
+      ],
+      "href": "https://api.spotify.com/v1/artists/1r1uxoy19fzMxunt3ONAkG",
+      "id": "1r1uxoy19fzMxunt3ONAkG",
+      "images": [
+        {
+          "height": 640,
+          "url": "https://i.scdn.co/image/ab24c1feb2260090399c7f20c3b0a9dc55134ed4",
+          "width": 640
+        },
+        {
+          "height": 320,
+          "url": "https://i.scdn.co/image/fba798f53cc9c8a50449693a227fdb2c4ab0759c",
+          "width": 320
+        },
+        {
+          "height": 160,
+          "url": "https://i.scdn.co/image/441fc54edfb66ef182d90a8624c9245d7f8f349b",
+          "width": 160
+        }
+      ],
+      "name": "Phoebe Bridgers",
+      "popularity": 71,
+      "type": "artist",
+      "uri": "spotify:artist:1r1uxoy19fzMxunt3ONAkG"
+    },
+    {
+      "external_urls": {
         "spotify": "https://open.spotify.com/artist/7bcbShaqKdcyjnmv4Ix8j6"
       },
       "followers": {
         "href": null,
-        "total": 452486
+        "total": 461244
       },
       "genres": [
         "art pop",
@@ -114,49 +158,9 @@
         }
       ],
       "name": "St. Vincent",
-      "popularity": 63,
+      "popularity": 64,
       "type": "artist",
       "uri": "spotify:artist:7bcbShaqKdcyjnmv4Ix8j6"
-    },
-    {
-      "external_urls": {
-        "spotify": "https://open.spotify.com/artist/2eam0iDomRHGBypaDQLwWI"
-      },
-      "followers": {
-        "href": null,
-        "total": 284082
-      },
-      "genres": [
-        "dance pop",
-        "indie pop",
-        "indie poptimism",
-        "modern alternative rock",
-        "modern rock",
-        "pop"
-      ],
-      "href": "https://api.spotify.com/v1/artists/2eam0iDomRHGBypaDQLwWI",
-      "id": "2eam0iDomRHGBypaDQLwWI",
-      "images": [
-        {
-          "height": 640,
-          "url": "https://i.scdn.co/image/e901011f4857ee79cf158afc58fc05e33edf3ad7",
-          "width": 640
-        },
-        {
-          "height": 320,
-          "url": "https://i.scdn.co/image/40d8cc48d1e815b1b4de04b413276ccbff501330",
-          "width": 320
-        },
-        {
-          "height": 160,
-          "url": "https://i.scdn.co/image/904bd47f57d1122e34ec52515372013447451cef",
-          "width": 160
-        }
-      ],
-      "name": "Bleachers",
-      "popularity": 63,
-      "type": "artist",
-      "uri": "spotify:artist:2eam0iDomRHGBypaDQLwWI"
     },
     {
       "external_urls": {
@@ -164,7 +168,7 @@
       },
       "followers": {
         "href": null,
-        "total": 4069065
+        "total": 4181170
       },
       "genres": [
         "art pop",
@@ -194,53 +198,57 @@
         }
       ],
       "name": "Lorde",
-      "popularity": 77,
+      "popularity": 78,
       "type": "artist",
       "uri": "spotify:artist:163tK9Wjr9P9DmM0AVK7lm"
     },
     {
       "external_urls": {
-        "spotify": "https://open.spotify.com/artist/6qqNVTkY8uBg9cP3Jd7DAH"
+        "spotify": "https://open.spotify.com/artist/2eam0iDomRHGBypaDQLwWI"
       },
       "followers": {
         "href": null,
-        "total": 4504117
+        "total": 289630
       },
       "genres": [
-        "electropop",
+        "dance pop",
+        "indie pop",
+        "indie poptimism",
+        "indietronica",
+        "modern rock",
         "pop"
       ],
-      "href": "https://api.spotify.com/v1/artists/6qqNVTkY8uBg9cP3Jd7DAH",
-      "id": "6qqNVTkY8uBg9cP3Jd7DAH",
+      "href": "https://api.spotify.com/v1/artists/2eam0iDomRHGBypaDQLwWI",
+      "id": "2eam0iDomRHGBypaDQLwWI",
       "images": [
         {
           "height": 640,
-          "url": "https://i.scdn.co/image/bcf71477d890a736eb769dc5f8af4e7d28278824",
+          "url": "https://i.scdn.co/image/e901011f4857ee79cf158afc58fc05e33edf3ad7",
           "width": 640
         },
         {
           "height": 320,
-          "url": "https://i.scdn.co/image/c1afa01d2ae18e308931fdd2ead79e6bf3408609",
+          "url": "https://i.scdn.co/image/40d8cc48d1e815b1b4de04b413276ccbff501330",
           "width": 320
         },
         {
           "height": 160,
-          "url": "https://i.scdn.co/image/a82c7f56ecdc456b641825a67ff69540ff6e2bb5",
+          "url": "https://i.scdn.co/image/904bd47f57d1122e34ec52515372013447451cef",
           "width": 160
         }
       ],
-      "name": "Billie Eilish",
-      "popularity": 93,
+      "name": "Bleachers",
+      "popularity": 64,
       "type": "artist",
-      "uri": "spotify:artist:6qqNVTkY8uBg9cP3Jd7DAH"
+      "uri": "spotify:artist:2eam0iDomRHGBypaDQLwWI"
     },
     {
       "external_urls": {
-        "spotify": "https://open.spotify.com/artist/12zbUHbPHL5DGuJtiUfsip"
+        "spotify": "https://open.spotify.com/artist/3NBmfDV6Yh3hjuQUBVvYgO"
       },
       "followers": {
         "href": null,
-        "total": 122173
+        "total": 19841
       },
       "genres": [
         "art pop",
@@ -250,7 +258,49 @@
         "indie pop",
         "indie rock",
         "modern rock",
+        "new americana",
         "stomp and holler"
+      ],
+      "href": "https://api.spotify.com/v1/artists/3NBmfDV6Yh3hjuQUBVvYgO",
+      "id": "3NBmfDV6Yh3hjuQUBVvYgO",
+      "images": [
+        {
+          "height": 640,
+          "url": "https://i.scdn.co/image/993eeeb755352aefcf387acd2fe5d8a8d5bd3ec1",
+          "width": 640
+        },
+        {
+          "height": 320,
+          "url": "https://i.scdn.co/image/6741938662a13418867a796e228aeb3fce105c58",
+          "width": 320
+        },
+        {
+          "height": 160,
+          "url": "https://i.scdn.co/image/75b6ac96a5d5308ce37da902ebb0ca6833354927",
+          "width": 160
+        }
+      ],
+      "name": "Better Oblivion Community Center",
+      "popularity": 60,
+      "type": "artist",
+      "uri": "spotify:artist:3NBmfDV6Yh3hjuQUBVvYgO"
+    },
+    {
+      "external_urls": {
+        "spotify": "https://open.spotify.com/artist/12zbUHbPHL5DGuJtiUfsip"
+      },
+      "followers": {
+        "href": null,
+        "total": 125752
+      },
+      "genres": [
+        "art pop",
+        "chamber pop",
+        "folk-pop",
+        "indie folk",
+        "indie pop",
+        "indie rock",
+        "modern rock"
       ],
       "href": "https://api.spotify.com/v1/artists/12zbUHbPHL5DGuJtiUfsip",
       "id": "12zbUHbPHL5DGuJtiUfsip",
@@ -272,46 +322,9 @@
         }
       ],
       "name": "Julien Baker",
-      "popularity": 60,
+      "popularity": 61,
       "type": "artist",
       "uri": "spotify:artist:12zbUHbPHL5DGuJtiUfsip"
-    },
-    {
-      "external_urls": {
-        "spotify": "https://open.spotify.com/artist/66CXWjxzNUsdJxJ2JdwvnR"
-      },
-      "followers": {
-        "href": null,
-        "total": 24526855
-      },
-      "genres": [
-        "dance pop",
-        "pop",
-        "post-teen pop"
-      ],
-      "href": "https://api.spotify.com/v1/artists/66CXWjxzNUsdJxJ2JdwvnR",
-      "id": "66CXWjxzNUsdJxJ2JdwvnR",
-      "images": [
-        {
-          "height": 640,
-          "url": "https://i.scdn.co/image/b1dfbe843b0b9f54ab2e588f33e7637d2dab065a",
-          "width": 640
-        },
-        {
-          "height": 320,
-          "url": "https://i.scdn.co/image/b189cb24f45db92780d1aa6c81aee69b8defa03a",
-          "width": 320
-        },
-        {
-          "height": 160,
-          "url": "https://i.scdn.co/image/3c4516cf74d09cf93db7536ce8826df28fba4156",
-          "width": 160
-        }
-      ],
-      "name": "Ariana Grande",
-      "popularity": 100,
-      "type": "artist",
-      "uri": "spotify:artist:66CXWjxzNUsdJxJ2JdwvnR"
     },
     {
       "external_urls": {
@@ -319,7 +332,7 @@
       },
       "followers": {
         "href": null,
-        "total": 158066
+        "total": 166847
       },
       "genres": [
         "art pop",
@@ -355,43 +368,135 @@
     },
     {
       "external_urls": {
-        "spotify": "https://open.spotify.com/artist/21GlDdSK6L1AvnMSbKh4Ut"
+        "spotify": "https://open.spotify.com/artist/2CvCyf1gEVhI0mX6aFXmVI"
       },
       "followers": {
         "href": null,
-        "total": 7416
+        "total": 942741
       },
       "genres": [
-        "dreamo"
+        "classic rock",
+        "folk",
+        "folk rock",
+        "folk-pop",
+        "mellow gold",
+        "permanent wave",
+        "rock",
+        "roots rock",
+        "singer-songwriter",
+        "soft rock",
+        "traditional folk"
       ],
-      "href": "https://api.spotify.com/v1/artists/21GlDdSK6L1AvnMSbKh4Ut",
-      "id": "21GlDdSK6L1AvnMSbKh4Ut",
+      "href": "https://api.spotify.com/v1/artists/2CvCyf1gEVhI0mX6aFXmVI",
+      "id": "2CvCyf1gEVhI0mX6aFXmVI",
       "images": [
         {
-          "height": 648,
-          "url": "https://i.scdn.co/image/99d4820aa068c79c8e6d73e0f866be55864b5248",
-          "width": 648
-        },
-        {
           "height": 640,
-          "url": "https://i.scdn.co/image/831138822ce050c41d46022bc9b35b9bc56f5057",
+          "url": "https://i.scdn.co/image/c6d1d398bb24bfa534ed57920ab373995659a83b",
           "width": 640
         },
         {
-          "height": 200,
-          "url": "https://i.scdn.co/image/376a405d17c1251c5def336d17911fb5dd647fe1",
+          "height": 320,
+          "url": "https://i.scdn.co/image/d78c46f9351932f878073e0f1f843b2c96eb06fe",
+          "width": 320
+        },
+        {
+          "height": 160,
+          "url": "https://i.scdn.co/image/a6e5e47d8811a9f74f94055d5e423487ca9b626f",
+          "width": 160
+        }
+      ],
+      "name": "Paul Simon",
+      "popularity": 71,
+      "type": "artist",
+      "uri": "spotify:artist:2CvCyf1gEVhI0mX6aFXmVI"
+    },
+    {
+      "external_urls": {
+        "spotify": "https://open.spotify.com/artist/0K23lQ2hSQAlxSEeZ05bjI"
+      },
+      "followers": {
+        "href": null,
+        "total": 26134
+      },
+      "genres": [
+        "classical",
+        "classical performance",
+        "orchestra"
+      ],
+      "href": "https://api.spotify.com/v1/artists/0K23lQ2hSQAlxSEeZ05bjI",
+      "id": "0K23lQ2hSQAlxSEeZ05bjI",
+      "images": [
+        {
+          "height": 667,
+          "url": "https://i.scdn.co/image/4b05c13944ca3cb4887765b2eea85ba0ffef8ef7",
+          "width": 1000
+        },
+        {
+          "height": 427,
+          "url": "https://i.scdn.co/image/a38d72cb22f6ae2e225ea245990b1c4269ee1cea",
+          "width": 640
+        },
+        {
+          "height": 133,
+          "url": "https://i.scdn.co/image/d4bd68c9b44b4176a03e0f0bec0bf865541ce67d",
           "width": 200
         },
         {
-          "height": 64,
-          "url": "https://i.scdn.co/image/35a8460809dbcb0b36bd506723bb8b073e070978",
+          "height": 43,
+          "url": "https://i.scdn.co/image/b8ae029d6d570142d964f407210e4ae3ef26b976",
           "width": 64
         }
       ],
-      "name": "Steel Train",
-      "popularity": 26,
+      "name": "Boston Symphony Orchestra",
+      "popularity": 55,
       "type": "artist",
-      "uri": "spotify:artist:21GlDdSK6L1AvnMSbKh4Ut"
+      "uri": "spotify:artist:0K23lQ2hSQAlxSEeZ05bjI"
+    },
+    {
+      "external_urls": {
+        "spotify": "https://open.spotify.com/artist/07D1Bjaof0NFlU32KXiqUP"
+      },
+      "followers": {
+        "href": null,
+        "total": 55980
+      },
+      "genres": [
+        "art pop",
+        "chamber pop",
+        "folk-pop",
+        "freak folk",
+        "indie folk",
+        "indie pop",
+        "indie rock",
+        "modern rock",
+        "new americana",
+        "preverb",
+        "stomp and holler"
+      ],
+      "href": "https://api.spotify.com/v1/artists/07D1Bjaof0NFlU32KXiqUP",
+      "id": "07D1Bjaof0NFlU32KXiqUP",
+      "images": [
+        {
+          "height": 640,
+          "url": "https://i.scdn.co/image/133903ad01e420838afb0d1b99e6e12deb0fdae1",
+          "width": 640
+        },
+        {
+          "height": 320,
+          "url": "https://i.scdn.co/image/8a41844849297f455e0589297f6b74fcc143916c",
+          "width": 320
+        },
+        {
+          "height": 160,
+          "url": "https://i.scdn.co/image/6902d4f0d4c48dfc1d6170d529bf6e4b4be9cfc4",
+          "width": 160
+        }
+      ],
+      "name": "Lucy Dacus",
+      "popularity": 63,
+      "type": "artist",
+      "uri": "spotify:artist:07D1Bjaof0NFlU32KXiqUP"
     },
     {
       "external_urls": {
@@ -399,7 +504,7 @@
       },
       "followers": {
         "href": null,
-        "total": 3178162
+        "total": 3189957
       },
       "genres": [
         "metropopolis",
@@ -432,60 +537,130 @@
         }
       ],
       "name": "fun.",
-      "popularity": 69,
+      "popularity": 70,
       "type": "artist",
       "uri": "spotify:artist:5nCi3BB41mBaMH9gfr6Su0"
     },
     {
       "external_urls": {
-        "spotify": "https://open.spotify.com/artist/2wJ4vsxWd7df7dRU4KcoDe"
+        "spotify": "https://open.spotify.com/artist/6sFIWsNpZYqfjUpaCgueju"
       },
       "followers": {
         "href": null,
-        "total": 200028
+        "total": 3239723
       },
       "genres": [
-        "art pop",
-        "chamber pop",
-        "chamber psych",
-        "dream pop",
+        "canadian pop",
+        "dance pop",
         "electropop",
-        "folk-pop",
-        "freak folk",
-        "indie folk",
-        "indie pop",
-        "indie rock",
-        "melancholia",
-        "modern rock",
-        "new americana",
-        "new jersey indie",
-        "preverb",
-        "slow core",
-        "stomp and holler"
+        "indie poptimism",
+        "pop",
+        "post-teen pop"
       ],
-      "href": "https://api.spotify.com/v1/artists/2wJ4vsxWd7df7dRU4KcoDe",
-      "id": "2wJ4vsxWd7df7dRU4KcoDe",
+      "href": "https://api.spotify.com/v1/artists/6sFIWsNpZYqfjUpaCgueju",
+      "id": "6sFIWsNpZYqfjUpaCgueju",
       "images": [
         {
           "height": 640,
-          "url": "https://i.scdn.co/image/f4c5aae597c949e7defe51bc764a8fb43ef4238d",
+          "url": "https://i.scdn.co/image/ed2a8594692503329560e33509aa86b116904d02",
           "width": 640
         },
         {
           "height": 320,
-          "url": "https://i.scdn.co/image/5f934c046b22077e664b7eacfca9d0394efecf84",
+          "url": "https://i.scdn.co/image/ec9a0d5ac516da0f69d586607512fa5b0db5033f",
           "width": 320
         },
         {
           "height": 160,
-          "url": "https://i.scdn.co/image/c4ab3413c45373e2faf15a7aa6d46faccb0a1841",
+          "url": "https://i.scdn.co/image/a2e8b43035cec022380f76ba261086ac752a3978",
           "width": 160
         }
       ],
-      "name": "Sharon Van Etten",
-      "popularity": 66,
+      "name": "Carly Rae Jepsen",
+      "popularity": 74,
       "type": "artist",
-      "uri": "spotify:artist:2wJ4vsxWd7df7dRU4KcoDe"
+      "uri": "spotify:artist:6sFIWsNpZYqfjUpaCgueju"
+    },
+    {
+      "external_urls": {
+        "spotify": "https://open.spotify.com/artist/21GlDdSK6L1AvnMSbKh4Ut"
+      },
+      "followers": {
+        "href": null,
+        "total": 7503
+      },
+      "genres": [
+        "dreamo"
+      ],
+      "href": "https://api.spotify.com/v1/artists/21GlDdSK6L1AvnMSbKh4Ut",
+      "id": "21GlDdSK6L1AvnMSbKh4Ut",
+      "images": [
+        {
+          "height": 648,
+          "url": "https://i.scdn.co/image/99d4820aa068c79c8e6d73e0f866be55864b5248",
+          "width": 648
+        },
+        {
+          "height": 640,
+          "url": "https://i.scdn.co/image/831138822ce050c41d46022bc9b35b9bc56f5057",
+          "width": 640
+        },
+        {
+          "height": 200,
+          "url": "https://i.scdn.co/image/376a405d17c1251c5def336d17911fb5dd647fe1",
+          "width": 200
+        },
+        {
+          "height": 64,
+          "url": "https://i.scdn.co/image/35a8460809dbcb0b36bd506723bb8b073e070978",
+          "width": 64
+        }
+      ],
+      "name": "Steel Train",
+      "popularity": 27,
+      "type": "artist",
+      "uri": "spotify:artist:21GlDdSK6L1AvnMSbKh4Ut"
+    },
+    {
+      "external_urls": {
+        "spotify": "https://open.spotify.com/artist/4aXXDj9aZnlshx7mzj3W1N"
+      },
+      "followers": {
+        "href": null,
+        "total": 193128
+      },
+      "genres": [
+        "hollywood",
+        "show tunes"
+      ],
+      "href": "https://api.spotify.com/v1/artists/4aXXDj9aZnlshx7mzj3W1N",
+      "id": "4aXXDj9aZnlshx7mzj3W1N",
+      "images": [
+        {
+          "height": 1000,
+          "url": "https://i.scdn.co/image/84dc87cca456089fc5cfa2d7593d9d960ca4553f",
+          "width": 1000
+        },
+        {
+          "height": 640,
+          "url": "https://i.scdn.co/image/d96d04e545d45bab308e6738010fe06d0ba61aac",
+          "width": 640
+        },
+        {
+          "height": 200,
+          "url": "https://i.scdn.co/image/f1eabec743f61a0a6197426e4114a0baec6f84a0",
+          "width": 200
+        },
+        {
+          "height": 64,
+          "url": "https://i.scdn.co/image/9a2842c6035165a615b50c8aed217b58699f174d",
+          "width": 64
+        }
+      ],
+      "name": "Lin-Manuel Miranda",
+      "popularity": 77,
+      "type": "artist",
+      "uri": "spotify:artist:4aXXDj9aZnlshx7mzj3W1N"
     },
     {
       "external_urls": {
@@ -493,7 +668,7 @@
       },
       "followers": {
         "href": null,
-        "total": 322478
+        "total": 340358
       },
       "genres": [
         "electropop"
@@ -518,139 +693,51 @@
         }
       ],
       "name": "Maggie Rogers",
-      "popularity": 75,
+      "popularity": 74,
       "type": "artist",
       "uri": "spotify:artist:4NZvixzsSefsNiIqXn0NDe"
     },
     {
       "external_urls": {
-        "spotify": "https://open.spotify.com/artist/4LG4Bs1Gadht7TCrMytQUO"
+        "spotify": "https://open.spotify.com/artist/0bvwPCit9Yh0yVdLKGnXRi"
       },
       "followers": {
         "href": null,
-        "total": 803553
+        "total": 9551
       },
       "genres": [
-        "albuquerque indie",
-        "alternative rock",
-        "chamber pop",
-        "folk-pop",
-        "garage rock",
-        "indie folk",
-        "indie pop",
-        "indie rock",
-        "indietronica",
-        "modern rock",
-        "pop rock",
-        "portland indie",
-        "stomp and holler"
+        "broadway",
+        "hollywood",
+        "show tunes"
       ],
-      "href": "https://api.spotify.com/v1/artists/4LG4Bs1Gadht7TCrMytQUO",
-      "id": "4LG4Bs1Gadht7TCrMytQUO",
+      "href": "https://api.spotify.com/v1/artists/0bvwPCit9Yh0yVdLKGnXRi",
+      "id": "0bvwPCit9Yh0yVdLKGnXRi",
       "images": [
         {
+          "height": 1000,
+          "url": "https://i.scdn.co/image/8383949fdfa0071da39d55be53c9c960574173ad",
+          "width": 1000
+        },
+        {
           "height": 640,
-          "url": "https://i.scdn.co/image/e9e850f299d7715eb1b05e07d8af3bfc98b6f9c5",
+          "url": "https://i.scdn.co/image/c080e10edff98f6cfe734d7a05c3f346d868a875",
           "width": 640
         },
         {
-          "height": 320,
-          "url": "https://i.scdn.co/image/3e473d3bf8bcbaf921082b554b0ceee47832b3cc",
-          "width": 320
+          "height": 200,
+          "url": "https://i.scdn.co/image/d2e1ac235d50ccc2d720bf5cdf39dd45f96617f5",
+          "width": 200
         },
         {
-          "height": 160,
-          "url": "https://i.scdn.co/image/37a10c2b4cc60a984f8453c45e2984fe5840e217",
-          "width": 160
+          "height": 64,
+          "url": "https://i.scdn.co/image/d6dcd650ab68bf88043a2830b626dbac895b97b3",
+          "width": 64
         }
       ],
-      "name": "The Shins",
-      "popularity": 65,
-      "type": "artist",
-      "uri": "spotify:artist:4LG4Bs1Gadht7TCrMytQUO"
-    },
-    {
-      "external_urls": {
-        "spotify": "https://open.spotify.com/artist/6sFIWsNpZYqfjUpaCgueju"
-      },
-      "followers": {
-        "href": null,
-        "total": 3161268
-      },
-      "genres": [
-        "canadian pop",
-        "dance pop",
-        "electropop",
-        "indie poptimism",
-        "pop",
-        "post-teen pop"
-      ],
-      "href": "https://api.spotify.com/v1/artists/6sFIWsNpZYqfjUpaCgueju",
-      "id": "6sFIWsNpZYqfjUpaCgueju",
-      "images": [
-        {
-          "height": 640,
-          "url": "https://i.scdn.co/image/41fd2206d8bd6520b1bd88c441ac2f3db4b875ce",
-          "width": 640
-        },
-        {
-          "height": 320,
-          "url": "https://i.scdn.co/image/de89d116840a29c6c82db69eba966e78ad6b7723",
-          "width": 320
-        },
-        {
-          "height": 160,
-          "url": "https://i.scdn.co/image/b0c0f0a9131008b20fb527922aaad223fa2772c3",
-          "width": 160
-        }
-      ],
-      "name": "Carly Rae Jepsen",
-      "popularity": 72,
-      "type": "artist",
-      "uri": "spotify:artist:6sFIWsNpZYqfjUpaCgueju"
-    },
-    {
-      "external_urls": {
-        "spotify": "https://open.spotify.com/artist/3NBmfDV6Yh3hjuQUBVvYgO"
-      },
-      "followers": {
-        "href": null,
-        "total": 16025
-      },
-      "genres": [
-        "art pop",
-        "chamber pop",
-        "folk-pop",
-        "indie folk",
-        "indie pop",
-        "indie rock",
-        "modern rock",
-        "new americana",
-        "stomp and holler"
-      ],
-      "href": "https://api.spotify.com/v1/artists/3NBmfDV6Yh3hjuQUBVvYgO",
-      "id": "3NBmfDV6Yh3hjuQUBVvYgO",
-      "images": [
-        {
-          "height": 640,
-          "url": "https://i.scdn.co/image/993eeeb755352aefcf387acd2fe5d8a8d5bd3ec1",
-          "width": 640
-        },
-        {
-          "height": 320,
-          "url": "https://i.scdn.co/image/6741938662a13418867a796e228aeb3fce105c58",
-          "width": 320
-        },
-        {
-          "height": 160,
-          "url": "https://i.scdn.co/image/75b6ac96a5d5308ce37da902ebb0ca6833354927",
-          "width": 160
-        }
-      ],
-      "name": "Better Oblivion Community Center",
+      "name": "Adam Pascal",
       "popularity": 61,
       "type": "artist",
-      "uri": "spotify:artist:3NBmfDV6Yh3hjuQUBVvYgO"
+      "uri": "spotify:artist:0bvwPCit9Yh0yVdLKGnXRi"
     },
     {
       "external_urls": {
@@ -658,7 +745,7 @@
       },
       "followers": {
         "href": null,
-        "total": 168728
+        "total": 171546
       },
       "genres": [
         "alternative rock",
@@ -695,134 +782,48 @@
         }
       ],
       "name": "The Mountain Goats",
-      "popularity": 57,
+      "popularity": 58,
       "type": "artist",
       "uri": "spotify:artist:3hyGGjxu73JuzBa757H6R5"
     },
     {
       "external_urls": {
-        "spotify": "https://open.spotify.com/artist/2KsP6tYLJlTBvSUxnwlVWa"
+        "spotify": "https://open.spotify.com/artist/6qqNVTkY8uBg9cP3Jd7DAH"
       },
       "followers": {
         "href": null,
-        "total": 788118
+        "total": 5239298
       },
       "genres": [
-        "dance pop",
-        "pop",
-        "pop rap"
+        "electropop",
+        "pop"
       ],
-      "href": "https://api.spotify.com/v1/artists/2KsP6tYLJlTBvSUxnwlVWa",
-      "id": "2KsP6tYLJlTBvSUxnwlVWa",
+      "href": "https://api.spotify.com/v1/artists/6qqNVTkY8uBg9cP3Jd7DAH",
+      "id": "6qqNVTkY8uBg9cP3Jd7DAH",
       "images": [
         {
           "height": 640,
-          "url": "https://i.scdn.co/image/beabf95dd2140e057ae9f2d6b1d3e80a020413fd",
+          "url": "https://i.scdn.co/image/bcf71477d890a736eb769dc5f8af4e7d28278824",
           "width": 640
         },
         {
           "height": 320,
-          "url": "https://i.scdn.co/image/09e3e218d4b60f091f67ef88d5b82259fb9c7b1c",
+          "url": "https://i.scdn.co/image/c1afa01d2ae18e308931fdd2ead79e6bf3408609",
           "width": 320
         },
         {
           "height": 160,
-          "url": "https://i.scdn.co/image/b05f4367446f7810fb540bf0629c720992169335",
+          "url": "https://i.scdn.co/image/a82c7f56ecdc456b641825a67ff69540ff6e2bb5",
           "width": 160
         }
       ],
-      "name": "Mike Posner",
-      "popularity": 74,
+      "name": "Billie Eilish",
+      "popularity": 94,
       "type": "artist",
-      "uri": "spotify:artist:2KsP6tYLJlTBvSUxnwlVWa"
-    },
-    {
-      "external_urls": {
-        "spotify": "https://open.spotify.com/artist/2Sqr0DXoaYABbjBo9HaMkM"
-      },
-      "followers": {
-        "href": null,
-        "total": 1065023
-      },
-      "genres": [
-        "acoustic pop",
-        "dance pop",
-        "folk-pop",
-        "hollywood",
-        "lilith",
-        "neo mellow",
-        "pop",
-        "pop rock",
-        "post-teen pop",
-        "viral pop"
-      ],
-      "href": "https://api.spotify.com/v1/artists/2Sqr0DXoaYABbjBo9HaMkM",
-      "id": "2Sqr0DXoaYABbjBo9HaMkM",
-      "images": [
-        {
-          "height": 640,
-          "url": "https://i.scdn.co/image/333d1b33bafec00016243092cf24de4847c25291",
-          "width": 640
-        },
-        {
-          "height": 320,
-          "url": "https://i.scdn.co/image/622f1641c111ae8d9c0eda414c789ad5d5ffe923",
-          "width": 320
-        },
-        {
-          "height": 160,
-          "url": "https://i.scdn.co/image/daa651e3412bcab8847daff4d42113a7132a9a57",
-          "width": 160
-        }
-      ],
-      "name": "Sara Bareilles",
-      "popularity": 71,
-      "type": "artist",
-      "uri": "spotify:artist:2Sqr0DXoaYABbjBo9HaMkM"
-    },
-    {
-      "external_urls": {
-        "spotify": "https://open.spotify.com/artist/2cCUtGK9sDU2EoElnk0GNB"
-      },
-      "followers": {
-        "href": null,
-        "total": 944957
-      },
-      "genres": [
-        "chamber pop",
-        "folk-pop",
-        "indie folk",
-        "indie pop",
-        "indie rock",
-        "modern rock",
-        "stomp and holler"
-      ],
-      "href": "https://api.spotify.com/v1/artists/2cCUtGK9sDU2EoElnk0GNB",
-      "id": "2cCUtGK9sDU2EoElnk0GNB",
-      "images": [
-        {
-          "height": 640,
-          "url": "https://i.scdn.co/image/7249cc6ecd94aebd2dfa5cefb6db057a84790d40",
-          "width": 640
-        },
-        {
-          "height": 320,
-          "url": "https://i.scdn.co/image/d62e489c0921ecbf324b92c635236302b98fd026",
-          "width": 320
-        },
-        {
-          "height": 160,
-          "url": "https://i.scdn.co/image/bd35f6dfaef2fd0075e10c835e174aa6a0b0ead4",
-          "width": 160
-        }
-      ],
-      "name": "The National",
-      "popularity": 69,
-      "type": "artist",
-      "uri": "spotify:artist:2cCUtGK9sDU2EoElnk0GNB"
+      "uri": "spotify:artist:6qqNVTkY8uBg9cP3Jd7DAH"
     }
   ],
-  "total": 42,
+  "total": 50,
   "limit": 20,
   "offset": 0,
   "previous": null,
