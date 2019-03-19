@@ -4,11 +4,13 @@
   <head>
   	<meta charset="UTF-8">
   	<script src="https://d3js.org/d3.v5.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/d3-legend/2.25.6/d3-legend.js"></script>
+    <script src="/js/top-tracks-and-artists.js"></script>
+    <link rel="stylesheet" href="css/style.css"></link>
   </head>
   <body>
   </body>
   <script type="text/javascript">
-  	
   	var width = window.innerWidth;
   	var height = window.innerHeight;
 
@@ -18,8 +20,10 @@
   		.attr('height', height);
 
   	d3.json('data/laura-short-term-top-artists.json').then(function(data, error){
-      console.log(data)
-    })
+  //      console.log(data)
+    });
+
+    loadTopTracksArtists();
 
   </script>
 </html>
