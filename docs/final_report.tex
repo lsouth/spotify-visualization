@@ -66,20 +66,8 @@
 %% OnlineID. Otherwise, you may safely leave it at ``0''.
 \onlineid{0}
 
-%% declare the category of your paper, only shown in review mode
-\vgtccategory{Research}
-%% please declare the paper type of your paper to help reviewers, only shown in review mode
-%% choices:
-%% * algorithm/technique
-%% * application/design study
-%% * evaluation
-%% * system
-%% * theory/model
-\vgtcpapertype{please specify}
-
 %% Paper title.
-\title{Spotify Visualization\eysa{tentative title}}
-
+\title{Visualizing Music Listening History with the Spotify API}
 %% This is how authors are specified in the journal style
 
 %% indicate IEEE Member or Student Member in form indicated below
@@ -87,21 +75,15 @@
 \authorfooter{
 %% insert punctuation at end of each item
 \item
- Sara Di Bartolomeo is with Northeastern University. E-mail: dibartolomeo.s@husky.neu.edu.
-\item
- Eysa Lee is with Northeastern University. E-mail: lee.ey@husky.neu.edu.
-\item
- Amogh Pradeep is with Northeastern University. E-mail: pradeep.am@husky.neu.edu.
- \item
- Laura South is with Northeastern University. E-mail: south.l@husky.neu.edu.
+ Sara Di Bartolomeo, Eysa Lee, Amogh Pradeep, and Laura South are with Northeastern University. E-mail: \{dibartolomeo.s\,$|$\,lee.ey\,$|$\,pradeep.am\,$|$\,south.l\}@husky.neu.edu.
 }
 
 %other entries to be set up for journal
-\shortauthortitle{Biv \MakeLowercase{\textit{et al.}}: Global Illumination for Fun and Profit}
+\shortauthortitle{Di Bartolomeo \MakeLowercase{\textit{et al.}}: Visualizing Music Listening History with the Spotify API}
 %\shortauthortitle{Firstauthor \MakeLowercase{\textit{et al.}}: Paper Title}
 
 %% Abstract section.
-\abstract{\eysa{todo}%
+\abstract{\eysa{}%
 } % end of abstract
 
 %% Keywords that describe your work. Will show as 'Index Terms' in journal
@@ -112,18 +94,18 @@
 %% See <http://www.acm.org/class/1998/> for details.
 %% The ``\CCScat'' command takes four arguments.
 
-\CCScatlist{ % not used in journal version
- \CCScat{K.6.1}{Management of Computing and Information Systems}%
-{Project and People Management}{Life Cycle};
- \CCScat{K.7.m}{The Computing Profession}{Miscellaneous}{Ethics}
-}
+% \CCScatlist{ % not used in journal version
+%  \CCScat{K.6.1}{Management of Computing and Information Systems}%
+% {Project and People Management}{Life Cycle};
+%  \CCScat{K.7.m}{The Computing Profession}{Miscellaneous}{Ethics}
+% }
 
 %% Uncomment below to include a teaser figure.
 \teaser{
   \centering
-  \includegraphics[width=\linewidth]{CypressView}
-  \caption{In the Clouds: \eysa{This should be replaced by a screenshot of our thing}.}
-	\label{fig:te}
+  \includegraphics[width=\linewidth]{mockup}
+  \caption{A week in music: \eysa{Tentative screenshot of our thing}.}
+	\label{fig:teaser}
 }
 
 %% Uncomment below to disable the manuscript note
@@ -131,7 +113,7 @@
 
 %% Copyright space is enabled by default as required by guidelines.
 %% It is disabled by the 'review' option or via the following command:
-% \nocopyrightspace
+\nocopyrightspace
 
 \vgtcinsertpkg
 
@@ -150,17 +132,56 @@
 \maketitle
 
 %% \section{Introduction} %for journal use above \firstsection{..} instead
-\eysa{This is the template}.
+\eysa{This is the template for the paper and required sections (as specified in the milestone document). Text and other sections will be added.\\
+Our motivation is roughly that we were curious about our own listening history and knew the data was there}.
 
-\section{This is a section}
+\section{Related Works}
+\eysa{Related works include Spotify's yearly end of year review and the LastFM document we found early on}
+
+\section{Process}
+\subsection{Task Analysis}
+We conducted nine short interviews with potential users of our visualization \eysa{todo: add table with summary of the results of the interview}
+
+From our interviews, we determined our domain goals to be the following:
+\begin{enumerate}
+  \item View daily listening history split by genre
+  \item View recent top artists/tracks
+  \item Compare listening history between users
+\end{enumerate}
+
+\eysa{todo: add discussino about these domain goals}
+
+\section{Design}
+
+% \begin{figure}[tb]
+%  \centering
+%  \includegraphics[width=\columnwidth]{genre_interaction}
+%  \caption{\eysa{todo: add caption}.}
+%  \label{fig:genre_interaction}
+% \end{figure}
+
+% \begin{figure}[tb]
+%  \centering
+%  \includegraphics[width=\columnwidth]{artist_interaction}
+%  \caption{\eysa{todo: add caption}.}
+%  \label{fig:artist_interaction}
+% \end{figure}
+
+% \begin{figure}[tb]
+%  \centering
+%  \includegraphics[width=\columnwidth]{track_interaction}
+%  \caption{\eysa{todo: add caption}.}
+%  \label{fig:track_interaction}
+% \end{figure}
+
+\section{Discussion}
 
 \section{Conclusion}
 
-\eysa{We learned lots of things blah blah our visualization is so cool}
-
 %% if specified like this the section will be committed in review mode
-% \acknowledgments{
-% .}
+\acknowledgments{
+The authors wish to thank the teaching staff of Michelle Borkin's Spring 2019 CS 7250 class for their helpful comments and guidance.
+}
 
 %\bibliographystyle{abbrv}
 \bibliographystyle{abbrv-doi}
