@@ -342,14 +342,14 @@
 %\newcommand{\journalid}[1]{\renewcommand{\journalidtxt}{#1}}
 
 %%Comment from here
-\newcommand{\manuscriptnotetxt}{
-Manuscript received xx xxx. 201x; accepted xx xxx. 201x. Date of Publication xx xxx. 201x; date of current version xx xxx. 201x. For information on obtaining reprints of this article, please send  e-mail to: reprints@ieee.org. Digital Object Identifier: xx.xxxx/TVCG.201x.xxxxxxx
-}
+% \newcommand{\manuscriptnotetxt}{
+% Manuscript received xx xxx. 201x; accepted xx xxx. 201x. Date of Publication xx xxx. 201x; date of current version xx xxx. 201x. For information on obtaining reprints of this article, please send  e-mail to: reprints@ieee.org. Digital Object Identifier: xx.xxxx/TVCG.201x.xxxxxxx
+% }
 %% to here to not use the blank
 
 %% NOTE FOR BLANK SPACING
 %% uncomment from here
-%\newcommand{\manuscriptnotetxt}{\vspace{.25in}}
+\newcommand{\manuscriptnotetxt}{}%\vspace{.25in}}
 %%  to here
 \newcommand{\manuscriptnote}[1]{\renewcommand{\manuscriptnotetxt}{#1}}
 \newcommand{\copyrighttext}{}

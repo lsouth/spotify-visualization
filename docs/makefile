@@ -27,7 +27,7 @@
 DVIFILES = final_report.dvi
 MAINTEXFILE = $(DVIFILES:.dvi=.tex)
 SUBTEXFILES = 
-BIBFILES = template.bib
+BIBFILES = references.bib
 
 #switch = to # when using ps2pdf in win32 (mingw/msys), i.e. uncomment 2nd line
 #E=\=

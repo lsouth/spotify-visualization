@@ -1,7 +1,7 @@
 \documentclass[journal]{vgtc}                % final (journal style)
-%\documentclass[review,journal]{vgtc}         % review (journal style)
+% \documentclass[review,journal]{vgtc}         % review (journal style)
 %\documentclass[widereview]{vgtc}             % wide-spaced review
-%\documentclass[preprint,journal]{vgtc}       % preprint (journal style)
+% \documentclass[preprint,journal]{vgtc}       % preprint (journal style)
 
 % This is eysa's macro file
 \input{macros}
@@ -67,7 +67,7 @@
 \onlineid{0}
 
 %% Paper title.
-\title{Visualizing Music Listening History with the Spotify API}
+\title{My Week in Music: Visualizing Music Listening History}
 %% This is how authors are specified in the journal style
 
 %% indicate IEEE Member or Student Member in form indicated below
@@ -79,11 +79,11 @@
 }
 
 %other entries to be set up for journal
-\shortauthortitle{Di Bartolomeo \MakeLowercase{\textit{et al.}}: Visualizing Music Listening History with the Spotify API}
+\shortauthortitle{Di Bartolomeo \MakeLowercase{\textit{et al.}}: My Week in Music: Visualizing Music Listening History}
 %\shortauthortitle{Firstauthor \MakeLowercase{\textit{et al.}}: Paper Title}
 
 %% Abstract section.
-\abstract{\eysa{}%
+\abstract{\eysa{todo}%
 } % end of abstract
 
 %% Keywords that describe your work. Will show as 'Index Terms' in journal
@@ -137,10 +137,23 @@ Our motivation is roughly that we were curious about our own listening history a
 
 \section{Related Works}
 \eysa{Related works include Spotify's yearly end of year review and the LastFM document we found early on}
+\subsection{Spotify Year in Review}
+
+Introduce SpotifyWrapped (and/or year in review). It gives aggregate data (total minutes listened, top songs, top artists, top genre).\cite{Spo18} \eysa{A small note is that the card this is referenced is no longer available.}
+
+\subsection{Last.fm}
+
+\eysa{Introduce Last.fm, which lets users explore their lisetning data by either connecting with their streaming service or uploading. There has much work in using this data}
+
+Pretzlav created Last.fm Explorer \cite{Pre08} \eysa{either add screenshots or describe in words. It also has a stacked bar chart}.
+
+Later, Dang, Anand, and Wilkinson created FmFinder \cite{Dan12} \eysa{Describe this one, too}
+
+More recently Boeing explore their own listening history from Last.fm and wrote up a blog post \cite{Boe16}. \eysa{Make this sound nicer}
 
 \section{Process}
 \subsection{Task Analysis}
-We conducted nine short interviews with potential users of our visualization \eysa{todo: add table with summary of the results of the interview}
+We conducted nine short interviews with potential users of our visualization \eysa{todo: add summary of the results of the interviews. Can add a table if I reaaaaally want to...}
 
 From our interviews, we determined our domain goals to be the following:
 \begin{enumerate}
@@ -149,38 +162,48 @@ From our interviews, we determined our domain goals to be the following:
   \item Compare listening history between users
 \end{enumerate}
 
-\eysa{todo: add discussino about these domain goals}
+\eysa{todo: add discussion about these domain goals}
+
+\begin{figure*}
+\centering
+\mbox{
+  \subfigure[Genre interaction.\label{fig:genre_interaction}]{\includegraphics[width=0.3\textwidth]{genre_interaction}}\quad
+  \subfigure[Artist interaction.\label{fig:artist_interaction}]{\includegraphics[width=0.3\textwidth]{artist_interaction}}\quad
+  \subfigure[Track interaction.\label{fig:track_interaction}]{\includegraphics[width=0.3\textwidth]{track_interaction}}
+}
+\caption{Primary interactions: Hovering over different areas in the visualization highlights and connects data between the stacked area chart and the two lists.\eysa{come back and make this nicer to read}}
+\label{fig:interactions}
+\end{figure*}
 
 \section{Design}
 
-% \begin{figure}[tb]
-%  \centering
-%  \includegraphics[width=\columnwidth]{genre_interaction}
-%  \caption{\eysa{todo: add caption}.}
-%  \label{fig:genre_interaction}
-% \end{figure}
+Interactions can be found in \autoref{fig:interactions}.
 
-% \begin{figure}[tb]
-%  \centering
-%  \includegraphics[width=\columnwidth]{artist_interaction}
-%  \caption{\eysa{todo: add caption}.}
-%  \label{fig:artist_interaction}
-% \end{figure}
-
-% \begin{figure}[tb]
-%  \centering
-%  \includegraphics[width=\columnwidth]{track_interaction}
-%  \caption{\eysa{todo: add caption}.}
-%  \label{fig:track_interaction}
-% \end{figure}
+This section will address:
+\begin{enumerate}
+  \item How do we address our domain goals from before.
+  \item Usability testing. Was there anything we changed based on classmates testing our preliminary design
+\end{enumerate}
 
 \section{Discussion}
+This section will include discussion on:
+\begin{enumerate}
+  \item What was the response like?
+  \item What were areas we wanted to explore but couldn't
+  \item What could we improve?
+\end{enumerate}
 
 \section{Conclusion}
 
+Future directions include:
+\begin{enumerate}
+  \item Computing over the data
+  \item How can we make it easier for people to compare?
+\end{enumerate}
+
 %% if specified like this the section will be committed in review mode
 \acknowledgments{
-The authors wish to thank the teaching staff of Michelle Borkin's Spring 2019 CS 7250 class for their helpful comments and guidance.
+The authors wish to thank the Spring 2019 teaching staff of Michelle Borkin's CS 7250 class for their helpful comments and guidance.
 }
 
 %\bibliographystyle{abbrv}
