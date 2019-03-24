@@ -1,0 +1,802 @@
+{
+  "items": [
+    {
+      "external_urls": {
+        "spotify": "https://open.spotify.com/artist/3XHO7cRUPCLOr6jwp8vsx5"
+      },
+      "followers": {
+        "href": null,
+        "total": 2157813
+      },
+      "genres": [
+        "indie rock"
+      ],
+      "href": "https://api.spotify.com/v1/artists/3XHO7cRUPCLOr6jwp8vsx5",
+      "id": "3XHO7cRUPCLOr6jwp8vsx5",
+      "images": [
+        {
+          "height": 640,
+          "url": "https://i.scdn.co/image/7ac54cbec2f1b3f5f1b7f6fc23acb9d00c70fb51",
+          "width": 640
+        },
+        {
+          "height": 320,
+          "url": "https://i.scdn.co/image/592ac1bc107c62fbdd9e1e91e891577672fa6bb3",
+          "width": 320
+        },
+        {
+          "height": 160,
+          "url": "https://i.scdn.co/image/94874205e99b9e27b316ea8c559679b740bdb038",
+          "width": 160
+        }
+      ],
+      "name": "alt-J",
+      "popularity": 74,
+      "type": "artist",
+      "uri": "spotify:artist:3XHO7cRUPCLOr6jwp8vsx5"
+    },
+    {
+      "external_urls": {
+        "spotify": "https://open.spotify.com/artist/4Y7tXHSEejGu1vQ9bwDdXW"
+      },
+      "followers": {
+        "href": null,
+        "total": 572633
+      },
+      "genres": [
+        "big beat",
+        "disco house",
+        "electronic"
+      ],
+      "href": "https://api.spotify.com/v1/artists/4Y7tXHSEejGu1vQ9bwDdXW",
+      "id": "4Y7tXHSEejGu1vQ9bwDdXW",
+      "images": [
+        {
+          "height": 640,
+          "url": "https://i.scdn.co/image/32376373e766c2676521d221624642a1708debfc",
+          "width": 640
+        },
+        {
+          "height": 320,
+          "url": "https://i.scdn.co/image/b59a91f4ddabf444586b6064b16cd759d3b1bf11",
+          "width": 320
+        },
+        {
+          "height": 160,
+          "url": "https://i.scdn.co/image/3331c5ed04432bfb5cb92a77d97f59ac1fa15dfd",
+          "width": 160
+        }
+      ],
+      "name": "Fatboy Slim",
+      "popularity": 67,
+      "type": "artist",
+      "uri": "spotify:artist:4Y7tXHSEejGu1vQ9bwDdXW"
+    },
+    {
+      "external_urls": {
+        "spotify": "https://open.spotify.com/artist/6buUuVTdxxAe5ODJtKZ4hP"
+      },
+      "followers": {
+        "href": null,
+        "total": 43758
+      },
+      "genres": [
+        "electrofox",
+        "filter house",
+        "french indie pop",
+        "french indietronica",
+        "new rave"
+      ],
+      "href": "https://api.spotify.com/v1/artists/6buUuVTdxxAe5ODJtKZ4hP",
+      "id": "6buUuVTdxxAe5ODJtKZ4hP",
+      "images": [
+        {
+          "height": 1000,
+          "url": "https://i.scdn.co/image/8401cbebaaff313f730448bdd182fb5c3df63089",
+          "width": 1000
+        },
+        {
+          "height": 640,
+          "url": "https://i.scdn.co/image/5d472b12f935da96e2d4383ff91acc3eac589608",
+          "width": 640
+        },
+        {
+          "height": 200,
+          "url": "https://i.scdn.co/image/542a44df832dca0a3ec02997e2cc3c626c8034a7",
+          "width": 200
+        },
+        {
+          "height": 64,
+          "url": "https://i.scdn.co/image/0c5609557725b9324bde5e0f3e7d66a17381cfd0",
+          "width": 64
+        }
+      ],
+      "name": "The Shoes",
+      "popularity": 41,
+      "type": "artist",
+      "uri": "spotify:artist:6buUuVTdxxAe5ODJtKZ4hP"
+    },
+    {
+      "external_urls": {
+        "spotify": "https://open.spotify.com/artist/7DzxfMQ3VNYR5vw2UFjzSK"
+      },
+      "followers": {
+        "href": null,
+        "total": 152964
+      },
+      "genres": [
+        "italian alternative",
+        "italian arena pop",
+        "italian pop"
+      ],
+      "href": "https://api.spotify.com/v1/artists/7DzxfMQ3VNYR5vw2UFjzSK",
+      "id": "7DzxfMQ3VNYR5vw2UFjzSK",
+      "images": [
+        {
+          "height": 640,
+          "url": "https://i.scdn.co/image/b063de919e72914b10f608d60696438a7078daa6",
+          "width": 640
+        },
+        {
+          "height": 320,
+          "url": "https://i.scdn.co/image/772c61c567edb6a2a8d9c78ba6c5f7b9039f24cd",
+          "width": 320
+        },
+        {
+          "height": 160,
+          "url": "https://i.scdn.co/image/4ce7136a5672edd854d0822bdf860faff173e48b",
+          "width": 160
+        }
+      ],
+      "name": "Subsonica",
+      "popularity": 54,
+      "type": "artist",
+      "uri": "spotify:artist:7DzxfMQ3VNYR5vw2UFjzSK"
+    },
+    {
+      "external_urls": {
+        "spotify": "https://open.spotify.com/artist/4k1ELeJKT1ISyDv8JivPpB"
+      },
+      "followers": {
+        "href": null,
+        "total": 994970
+      },
+      "genres": [
+        "big beat",
+        "breakbeat",
+        "electronic",
+        "hardcore techno"
+      ],
+      "href": "https://api.spotify.com/v1/artists/4k1ELeJKT1ISyDv8JivPpB",
+      "id": "4k1ELeJKT1ISyDv8JivPpB",
+      "images": [
+        {
+          "height": 640,
+          "url": "https://i.scdn.co/image/21403e7f6ad44360abf0ee5f6349a71a7fd4eb4f",
+          "width": 640
+        },
+        {
+          "height": 320,
+          "url": "https://i.scdn.co/image/824d7eaca66c731ef7e4dc069ad13c762c53e953",
+          "width": 320
+        },
+        {
+          "height": 160,
+          "url": "https://i.scdn.co/image/410213c2c960421bf8897bd2c953c595a150b419",
+          "width": 160
+        }
+      ],
+      "name": "The Prodigy",
+      "popularity": 74,
+      "type": "artist",
+      "uri": "spotify:artist:4k1ELeJKT1ISyDv8JivPpB"
+    },
+    {
+      "external_urls": {
+        "spotify": "https://open.spotify.com/artist/2fBURuq7FrlH6z5F92mpOl"
+      },
+      "followers": {
+        "href": null,
+        "total": 204349
+      },
+      "genres": [
+        "alternative dance",
+        "big beat",
+        "dance-punk",
+        "electro house",
+        "electronic",
+        "indietronica",
+        "new rave"
+      ],
+      "href": "https://api.spotify.com/v1/artists/2fBURuq7FrlH6z5F92mpOl",
+      "id": "2fBURuq7FrlH6z5F92mpOl",
+      "images": [
+        {
+          "height": 640,
+          "url": "https://i.scdn.co/image/6dcd4729e6034fbc1f4a16483ec093e9691db1cd",
+          "width": 640
+        },
+        {
+          "height": 320,
+          "url": "https://i.scdn.co/image/ee224638a0a633720d794b801dd467c29ac2fa37",
+          "width": 320
+        },
+        {
+          "height": 160,
+          "url": "https://i.scdn.co/image/5fdae718234e8a806336389c59637a53a537e5a9",
+          "width": 160
+        }
+      ],
+      "name": "Digitalism",
+      "popularity": 57,
+      "type": "artist",
+      "uri": "spotify:artist:2fBURuq7FrlH6z5F92mpOl"
+    },
+    {
+      "external_urls": {
+        "spotify": "https://open.spotify.com/artist/0UF7XLthtbSF2Eur7559oV"
+      },
+      "followers": {
+        "href": null,
+        "total": 488171
+      },
+      "genres": [
+        "filter house",
+        "new rave"
+      ],
+      "href": "https://api.spotify.com/v1/artists/0UF7XLthtbSF2Eur7559oV",
+      "id": "0UF7XLthtbSF2Eur7559oV",
+      "images": [
+        {
+          "height": 1220,
+          "url": "https://i.scdn.co/image/8827ad40fd7e7f89fa33affa5217f23bfe1a7067",
+          "width": 1000
+        },
+        {
+          "height": 781,
+          "url": "https://i.scdn.co/image/8c0785fed9f30cae6b12e6007de5bd4ca91a8eb9",
+          "width": 640
+        },
+        {
+          "height": 244,
+          "url": "https://i.scdn.co/image/08b58d51feae3c69588d3929475e54bddb0d123f",
+          "width": 200
+        },
+        {
+          "height": 78,
+          "url": "https://i.scdn.co/image/52f8e9a14f69c38362023f79ed86be9b528e8d25",
+          "width": 64
+        }
+      ],
+      "name": "Kavinsky",
+      "popularity": 60,
+      "type": "artist",
+      "uri": "spotify:artist:0UF7XLthtbSF2Eur7559oV"
+    },
+    {
+      "external_urls": {
+        "spotify": "https://open.spotify.com/artist/4bFfSfCBYpFh37ziXCSqUs"
+      },
+      "followers": {
+        "href": null,
+        "total": 41298
+      },
+      "genres": [
+        "alternative dance",
+        "dance-punk",
+        "indietronica",
+        "new rave",
+        "reading indie"
+      ],
+      "href": "https://api.spotify.com/v1/artists/4bFfSfCBYpFh37ziXCSqUs",
+      "id": "4bFfSfCBYpFh37ziXCSqUs",
+      "images": [
+        {
+          "height": 718,
+          "url": "https://i.scdn.co/image/e3d93cdfa0068ab1210cab6c2cf44093f99bc366",
+          "width": 720
+        },
+        {
+          "height": 638,
+          "url": "https://i.scdn.co/image/528960ada4c3e817ff2a110b94067d82175dc491",
+          "width": 640
+        },
+        {
+          "height": 199,
+          "url": "https://i.scdn.co/image/7eb14ebedbddbb3296a4c5b77d61978e0814e95a",
+          "width": 200
+        },
+        {
+          "height": 64,
+          "url": "https://i.scdn.co/image/241190de0b559ce237d31ecbf0d6223f3e064b2e",
+          "width": 64
+        }
+      ],
+      "name": "Does It Offend You, Yeah?",
+      "popularity": 37,
+      "type": "artist",
+      "uri": "spotify:artist:4bFfSfCBYpFh37ziXCSqUs"
+    },
+    {
+      "external_urls": {
+        "spotify": "https://open.spotify.com/artist/3kjuyTCjPG1WMFCiyc5IuB"
+      },
+      "followers": {
+        "href": null,
+        "total": 1452552
+      },
+      "genres": [
+        "alternative dance",
+        "alternative rock",
+        "canadian indie",
+        "chamber pop",
+        "dance-punk",
+        "garage rock",
+        "indie folk",
+        "indie pop",
+        "indie rock",
+        "indietronica",
+        "modern rock",
+        "new rave",
+        "permanent wave",
+        "quebec indie",
+        "rock"
+      ],
+      "href": "https://api.spotify.com/v1/artists/3kjuyTCjPG1WMFCiyc5IuB",
+      "id": "3kjuyTCjPG1WMFCiyc5IuB",
+      "images": [
+        {
+          "height": 640,
+          "url": "https://i.scdn.co/image/30178636b1a28ab76de5a4a4599cc9a5dd866735",
+          "width": 640
+        },
+        {
+          "height": 320,
+          "url": "https://i.scdn.co/image/b24cac2dedc6d9739f0fd5eef5a82bdf8fe1b4b6",
+          "width": 320
+        },
+        {
+          "height": 160,
+          "url": "https://i.scdn.co/image/a9b5eb07f07bb17e2c81288bd6c7a3d9d9b7d60b",
+          "width": 160
+        }
+      ],
+      "name": "Arcade Fire",
+      "popularity": 72,
+      "type": "artist",
+      "uri": "spotify:artist:3kjuyTCjPG1WMFCiyc5IuB"
+    },
+    {
+      "external_urls": {
+        "spotify": "https://open.spotify.com/artist/53XhwfbYqKCa1cC15pYq2q"
+      },
+      "followers": {
+        "href": null,
+        "total": 17353240
+      },
+      "genres": [
+        "modern rock",
+        "rock"
+      ],
+      "href": "https://api.spotify.com/v1/artists/53XhwfbYqKCa1cC15pYq2q",
+      "id": "53XhwfbYqKCa1cC15pYq2q",
+      "images": [
+        {
+          "height": 640,
+          "url": "https://i.scdn.co/image/01b36ca0f45f2f15117022a2754287a6ca1acdcc",
+          "width": 640
+        },
+        {
+          "height": 320,
+          "url": "https://i.scdn.co/image/ff8d83627cb2a80d4c1fa36fd80a193ca34b7a50",
+          "width": 320
+        },
+        {
+          "height": 160,
+          "url": "https://i.scdn.co/image/1cdf5ce3cf329ae433bfa76e88dadeb06653fda9",
+          "width": 160
+        }
+      ],
+      "name": "Imagine Dragons",
+      "popularity": 91,
+      "type": "artist",
+      "uri": "spotify:artist:53XhwfbYqKCa1cC15pYq2q"
+    },
+    {
+      "external_urls": {
+        "spotify": "https://open.spotify.com/artist/1OAjDaKgg00KCUYqDe68un"
+      },
+      "followers": {
+        "href": null,
+        "total": 282728
+      },
+      "genres": [
+        "eurodance",
+        "europop",
+        "italo dance"
+      ],
+      "href": "https://api.spotify.com/v1/artists/1OAjDaKgg00KCUYqDe68un",
+      "id": "1OAjDaKgg00KCUYqDe68un",
+      "images": [
+        {
+          "height": 640,
+          "url": "https://i.scdn.co/image/9db1326dca4965b2446bcc05975964e982aafbd9",
+          "width": 640
+        },
+        {
+          "height": 320,
+          "url": "https://i.scdn.co/image/8b48ec02e4212de84af39f175703516fa475c24c",
+          "width": 320
+        },
+        {
+          "height": 160,
+          "url": "https://i.scdn.co/image/41deb8bffb298535fba3af19b83f44b10e61c14d",
+          "width": 160
+        }
+      ],
+      "name": "Gigi D'Agostino",
+      "popularity": 77,
+      "type": "artist",
+      "uri": "spotify:artist:1OAjDaKgg00KCUYqDe68un"
+    },
+    {
+      "external_urls": {
+        "spotify": "https://open.spotify.com/artist/3vbKDsSS70ZX9D2OcvbZmS"
+      },
+      "followers": {
+        "href": null,
+        "total": 878440
+      },
+      "genres": [
+        "alternative rock",
+        "anti-folk",
+        "garage rock",
+        "indie rock",
+        "modern rock",
+        "permanent wave",
+        "pop rock",
+        "rock"
+      ],
+      "href": "https://api.spotify.com/v1/artists/3vbKDsSS70ZX9D2OcvbZmS",
+      "id": "3vbKDsSS70ZX9D2OcvbZmS",
+      "images": [
+        {
+          "height": 637,
+          "url": "https://i.scdn.co/image/0f9a6de96397097f0a717bdbd4b15fe9d97ca5d0",
+          "width": 640
+        },
+        {
+          "height": 319,
+          "url": "https://i.scdn.co/image/7a51cc5f85b602a6058f79ac13211c4e06175944",
+          "width": 320
+        },
+        {
+          "height": 159,
+          "url": "https://i.scdn.co/image/bd9d8b22499c4b3d1cb2358a7f50d061b77a247d",
+          "width": 160
+        }
+      ],
+      "name": "Beck",
+      "popularity": 70,
+      "type": "artist",
+      "uri": "spotify:artist:3vbKDsSS70ZX9D2OcvbZmS"
+    },
+    {
+      "external_urls": {
+        "spotify": "https://open.spotify.com/artist/4M84umUNRbZy1mJleyyRM9"
+      },
+      "followers": {
+        "href": null,
+        "total": 157027
+      },
+      "genres": [
+        "alternative dance",
+        "dance-punk",
+        "electro house",
+        "electroclash",
+        "electronic",
+        "filter house",
+        "new rave"
+      ],
+      "href": "https://api.spotify.com/v1/artists/4M84umUNRbZy1mJleyyRM9",
+      "id": "4M84umUNRbZy1mJleyyRM9",
+      "images": [
+        {
+          "height": 640,
+          "url": "https://i.scdn.co/image/676c454bcb2b84d48060c895a668c17f94878760",
+          "width": 640
+        },
+        {
+          "height": 320,
+          "url": "https://i.scdn.co/image/f9b104ca523d40026e87c2411579ca1bb11ef4ad",
+          "width": 320
+        },
+        {
+          "height": 160,
+          "url": "https://i.scdn.co/image/93ae6c338ffb6815b059b6d05aeb0f7b80dda5f8",
+          "width": 160
+        }
+      ],
+      "name": "Vitalic",
+      "popularity": 54,
+      "type": "artist",
+      "uri": "spotify:artist:4M84umUNRbZy1mJleyyRM9"
+    },
+    {
+      "external_urls": {
+        "spotify": "https://open.spotify.com/artist/6q8FspLLQOHpabMMbEb8Vq"
+      },
+      "followers": {
+        "href": null,
+        "total": 30655
+      },
+      "genres": [
+        "italian indie pop"
+      ],
+      "href": "https://api.spotify.com/v1/artists/6q8FspLLQOHpabMMbEb8Vq",
+      "id": "6q8FspLLQOHpabMMbEb8Vq",
+      "images": [
+        {
+          "height": 640,
+          "url": "https://i.scdn.co/image/2455f93dd53b36401ed03a80ede881e475045d32",
+          "width": 640
+        },
+        {
+          "height": 300,
+          "url": "https://i.scdn.co/image/9599e34283a40454ba699fa29e6f531166d1729f",
+          "width": 300
+        },
+        {
+          "height": 64,
+          "url": "https://i.scdn.co/image/24184a0d476d543ee6fb5880a8f2e13b5019535d",
+          "width": 64
+        }
+      ],
+      "name": "Bluvertigo",
+      "popularity": 34,
+      "type": "artist",
+      "uri": "spotify:artist:6q8FspLLQOHpabMMbEb8Vq"
+    },
+    {
+      "external_urls": {
+        "spotify": "https://open.spotify.com/artist/6XZYAWJLL8UIbxAqjKj3cg"
+      },
+      "followers": {
+        "href": null,
+        "total": 212181
+      },
+      "genres": [
+        "electropop",
+        "indie r&b",
+        "vapor soul"
+      ],
+      "href": "https://api.spotify.com/v1/artists/6XZYAWJLL8UIbxAqjKj3cg",
+      "id": "6XZYAWJLL8UIbxAqjKj3cg",
+      "images": [
+        {
+          "height": 640,
+          "url": "https://i.scdn.co/image/71c1e96ea02c4748c22a5a0fcedfbe7ea6eac112",
+          "width": 640
+        },
+        {
+          "height": 320,
+          "url": "https://i.scdn.co/image/c890917962da6299d03a72dd8465bcdd402b5751",
+          "width": 320
+        },
+        {
+          "height": 160,
+          "url": "https://i.scdn.co/image/b32514a06036c757210af9cecbd5f1d05cd87dc8",
+          "width": 160
+        }
+      ],
+      "name": "SOHN",
+      "popularity": 56,
+      "type": "artist",
+      "uri": "spotify:artist:6XZYAWJLL8UIbxAqjKj3cg"
+    },
+    {
+      "external_urls": {
+        "spotify": "https://open.spotify.com/artist/6gto7HVNhu4ARE3P3g8Y5Y"
+      },
+      "followers": {
+        "href": null,
+        "total": 1159004
+      },
+      "genres": [
+        "german hip hop"
+      ],
+      "href": "https://api.spotify.com/v1/artists/6gto7HVNhu4ARE3P3g8Y5Y",
+      "id": "6gto7HVNhu4ARE3P3g8Y5Y",
+      "images": [
+        {
+          "height": 640,
+          "url": "https://i.scdn.co/image/ab840e096e047bf7e92e8cca863fbe3ee7279f3b",
+          "width": 640
+        },
+        {
+          "height": 320,
+          "url": "https://i.scdn.co/image/0902513144a4243386b744acd343dacc84a8a845",
+          "width": 320
+        },
+        {
+          "height": 160,
+          "url": "https://i.scdn.co/image/f0e092f87de8c41529ac50a3ecfaca37f2d349cf",
+          "width": 160
+        }
+      ],
+      "name": "Kollegah",
+      "popularity": 75,
+      "type": "artist",
+      "uri": "spotify:artist:6gto7HVNhu4ARE3P3g8Y5Y"
+    },
+    {
+      "external_urls": {
+        "spotify": "https://open.spotify.com/artist/166Dz1GX3xonSQ3Z6CQW26"
+      },
+      "followers": {
+        "href": null,
+        "total": 163131
+      },
+      "genres": [
+        "alternative dance",
+        "dance-punk",
+        "electroclash",
+        "garage rock",
+        "indie rock",
+        "indietronica",
+        "modern rock",
+        "new rave"
+      ],
+      "href": "https://api.spotify.com/v1/artists/166Dz1GX3xonSQ3Z6CQW26",
+      "id": "166Dz1GX3xonSQ3Z6CQW26",
+      "images": [
+        {
+          "height": 663,
+          "url": "https://i.scdn.co/image/0d5f9ab947edf8f3f7957086668af63b7c239532",
+          "width": 1000
+        },
+        {
+          "height": 424,
+          "url": "https://i.scdn.co/image/2a729f1c5905c1c72a4afbc99939aa183d097855",
+          "width": 639
+        },
+        {
+          "height": 133,
+          "url": "https://i.scdn.co/image/9be22153f19d83b435f8abf67035f03b26ec2e9a",
+          "width": 200
+        },
+        {
+          "height": 42,
+          "url": "https://i.scdn.co/image/5717d9d7edd209269c298100da552ccdd27220b7",
+          "width": 63
+        }
+      ],
+      "name": "The Rapture",
+      "popularity": 52,
+      "type": "artist",
+      "uri": "spotify:artist:166Dz1GX3xonSQ3Z6CQW26"
+    },
+    {
+      "external_urls": {
+        "spotify": "https://open.spotify.com/artist/6VsiDFMZJlJ053P1uO4A6h"
+      },
+      "followers": {
+        "href": null,
+        "total": 81527
+      },
+      "genres": [
+        "chamber psych"
+      ],
+      "href": "https://api.spotify.com/v1/artists/6VsiDFMZJlJ053P1uO4A6h",
+      "id": "6VsiDFMZJlJ053P1uO4A6h",
+      "images": [
+        {
+          "height": 640,
+          "url": "https://i.scdn.co/image/daa16a6416dd2a3854da76514a9fa536e5efc37d",
+          "width": 640
+        },
+        {
+          "height": 320,
+          "url": "https://i.scdn.co/image/528bcd331fd8703fcb3a6908a4c3b60cfb0dd49a",
+          "width": 320
+        },
+        {
+          "height": 160,
+          "url": "https://i.scdn.co/image/29ee711d7f80f6f2c600b7c2dda21a6c417af15f",
+          "width": 160
+        }
+      ],
+      "name": "Public Service Broadcasting",
+      "popularity": 49,
+      "type": "artist",
+      "uri": "spotify:artist:6VsiDFMZJlJ053P1uO4A6h"
+    },
+    {
+      "external_urls": {
+        "spotify": "https://open.spotify.com/artist/1GhPHrq36VKCY3ucVaZCfo"
+      },
+      "followers": {
+        "href": null,
+        "total": 942449
+      },
+      "genres": [
+        "alternative dance",
+        "big beat",
+        "breakbeat",
+        "electronic",
+        "new rave",
+        "trip hop"
+      ],
+      "href": "https://api.spotify.com/v1/artists/1GhPHrq36VKCY3ucVaZCfo",
+      "id": "1GhPHrq36VKCY3ucVaZCfo",
+      "images": [
+        {
+          "height": 640,
+          "url": "https://i.scdn.co/image/1991a8deb2a1cb7f7701b79b60f2ae2610a85db2",
+          "width": 640
+        },
+        {
+          "height": 320,
+          "url": "https://i.scdn.co/image/a3e1f8a31fe86c0362c006d9a6e137e028a0d50e",
+          "width": 320
+        },
+        {
+          "height": 160,
+          "url": "https://i.scdn.co/image/0276ca3482b88bcc2503effd49f258ac174c68cb",
+          "width": 160
+        }
+      ],
+      "name": "The Chemical Brothers",
+      "popularity": 67,
+      "type": "artist",
+      "uri": "spotify:artist:1GhPHrq36VKCY3ucVaZCfo"
+    },
+    {
+      "external_urls": {
+        "spotify": "https://open.spotify.com/artist/2jYMYP2SVifgmzNRQJx3SJ"
+      },
+      "followers": {
+        "href": null,
+        "total": 131592
+      },
+      "genres": [
+        "alternative dance",
+        "electronic",
+        "indietronica",
+        "microhouse",
+        "minimal techno",
+        "new rave",
+        "trip hop"
+      ],
+      "href": "https://api.spotify.com/v1/artists/2jYMYP2SVifgmzNRQJx3SJ",
+      "id": "2jYMYP2SVifgmzNRQJx3SJ",
+      "images": [
+        {
+          "height": 640,
+          "url": "https://i.scdn.co/image/1bf7a85bcc0c047d8914a2524ed3e35772c6f69b",
+          "width": 640
+        },
+        {
+          "height": 320,
+          "url": "https://i.scdn.co/image/b68ceddf4a4d87b4a8c7b0ee8fad9edcec057f3a",
+          "width": 320
+        },
+        {
+          "height": 160,
+          "url": "https://i.scdn.co/image/2df6764205e5d2637e4749e3a50d41c0474b72a8",
+          "width": 160
+        }
+      ],
+      "name": "Modeselektor",
+      "popularity": 55,
+      "type": "artist",
+      "uri": "spotify:artist:2jYMYP2SVifgmzNRQJx3SJ"
+    }
+  ],
+  "total": 50,
+  "limit": 20,
+  "offset": 0,
+  "href": "https://api.spotify.com/v1/me/top/artists?time_range=long_term",
+  "previous": null,
+  "next": "https://api.spotify.com/v1/me/top/artists?limit=20&offset=20&time_range=long_term"
+}

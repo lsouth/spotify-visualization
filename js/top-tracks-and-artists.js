@@ -4,7 +4,8 @@ let scales = {
   popularity: d3.scaleLinear().domain([0,100]).range([10,150])
 };
 
-let genres = ["pop","indie pop","rap","hiphop","alternative rock","dance pop", "electropop","rock","show tunes","classical"];
+//let genres = ["pop","indie pop","rap","hiphop","alternative rock","dance pop", "electropop","rock","show tunes","classical"];
+let genres = [];
 
 function createTopTracks(tracks, timeframe){
   console.log("Creating top tracks (" + timeframe + ")");
@@ -37,6 +38,15 @@ function createTopTracks(tracks, timeframe){
     });
 }
 
+
+async function generateGenreList(){
+  full_data = await load_streamgraph_data();
+  tmp = periods_by_genres(full_data);
+  genre_list = tmp[0];
+  return genre_list;
+}
+
+
 function init(){
   let listWidth = width/6;
   svg.append("g").attr("id","top-tracks-st").attr("transform", "translate(" + 0 + "," + height/2 + ")");
@@ -46,6 +56,7 @@ function init(){
   svg.append("g").attr("id","top-artists-mt").attr("transform", "translate(" + 4*listWidth + "," + height/2 + ")");
   svg.append("g").attr("id","top-artists-lt").attr("transform", "translate(" + 5*listWidth + "," + height/2 + ")");
 }
+
 
 function createTopArtists(artists, timeframe){
   console.log(artists);
@@ -107,30 +118,60 @@ function createTopArtists(artists, timeframe){
   })
 }
 
-function addLegend(){
-  svg.append("g").attr("transform","translate(100, 100)").attr("class","genre-legend");
-  let legend = d3.legendColor().scale(scales.color);
-  svg.select(".genre-legend").call(legend);
+
+async function addLegend(){
+  //let genre_legend = svg.append("g").attr("transform","translate(100, 100)").attr("class","genre-legend");
+  //let legend = d3.legendColor().scale(scales.color);
+  //svg.select(".genre-legend").call(legend);
+
+  //genres = await generateGenreList()
+  let full_data = await load_streamgraph_data();
+  let tmp = periods_by_genres(full_data);
+  let genre_array = tmp[0];
+
+  let line_spacing = 12;
+  let genre_legend = svg.append("g").attr("transform","translate(250, 80)")
+
+  let legend_lines = genre_legend.selectAll(".dot-legend")
+    .data(genre_array)
+    .enter()
+    .append("g")
+    .attr("transform", (d, i) => "translate(0," + i*line_spacing + ")")
+
+  legend_lines.append("text")
+    .attr("x", 0)
+    .attr("y", 0)
+    .attr("font-size", "small")
+    .attr("text-anchor", "end")
+    .text(d => d)
+
+  legend_lines.append("rect")
+    .attr("x", 10)
+    .attr("y", -10)
+    .attr("width", 10)
+    .attr("height", 10)
+    .attr("fill", (d, i) => d3.interpolateRainbow(i/10.0))
 }
+
 
 function loadTopTracksArtists(){
   init();
-  d3.json("/data/laura-short-term-tracks-march.json").then(function(tracks){
+  d3.json("./data/"+user+"-short-term-top-tracks.json").then(function(tracks){
     createTopTracks(tracks.items,"st");
   });
-  d3.json("/data/laura-medium-term-top-tracks.json").then(function(tracks){
+  d3.json("./data/"+user+"-medium-term-top-tracks.json").then(function(tracks){
     createTopTracks(tracks.items,"mt");
   });
-  d3.json("/data/laura-long-term-top-tracks.json").then(function(tracks){
+  d3.json("./data/"+user+"-long-term-top-tracks.json").then(function(tracks){
     createTopTracks(tracks.items,"lt");
   });
-  d3.json("/data/laura-short-term-top-artists.json").then(function(artists){
+  d3.json("./data/"+user+"-short-term-top-artists.json").then(function(artists){
     createTopArtists(artists.items, "st");
   });
-  d3.json("/data/laura-medium-term-top-artists.json").then(function(artists){
+  d3.json("./data/"+user+"-medium-term-top-artists.json").then(function(artists){
     createTopArtists(artists.items, "mt");
   });
-  d3.json("/data/laura-long-term-top-artists.json").then(function(artists){
+  d3.json("./data/"+user+"-long-term-top-artists.json").then(function(artists){
     createTopArtists(artists.items, "lt");
     addLegend();
   });
