@@ -1,0 +1,194 @@
+\documentclass[journal]{vgtc}                % final (journal style)
+%\documentclass[review,journal]{vgtc}         % review (journal style)
+%\documentclass[widereview]{vgtc}             % wide-spaced review
+%\documentclass[preprint,journal]{vgtc}       % preprint (journal style)
+
+% This is eysa's macro file
+\input{macros}
+
+%% Uncomment one of the lines above depending on where your paper is
+%% in the conference process. ``review'' and ``widereview'' are for review
+%% submission, ``preprint'' is for pre-publication, and the final version
+%% doesn't use a specific qualifier.
+
+%% Please use one of the ``review'' options in combination with the
+%% assigned online id (see below) ONLY if your paper uses a double blind
+%% review process. Some conferences, like IEEE Vis and InfoVis, have NOT
+%% in the past.
+
+%% Please note that the use of figures other than the optional teaser is not permitted on the first page
+%% of the journal version.  Figures should begin on the second page and be
+%% in CMYK or Grey scale format, otherwise, colour shifting may occur
+%% during the printing process.  Papers submitted with figures other than the optional teaser on the
+%% first page will be refused. Also, the teaser figure should only have the
+%% width of the abstract as the template enforces it.
+
+%% These few lines make a distinction between latex and pdflatex calls and they
+%% bring in essential packages for graphics and font handling.
+%% Note that due to the \DeclareGraphicsExtensions{} call it is no longer necessary
+%% to provide the the path and extension of a graphics file:
+%% \includegraphics{diamondrule} is completely sufficient.
+%%
+\ifpdf%                                % if we use pdflatex
+  \pdfoutput=1\relax                   % create PDFs from pdfLaTeX
+  \pdfcompresslevel=9                  % PDF Compression
+  \pdfoptionpdfminorversion=7          % create PDF 1.7
+  \ExecuteOptions{pdftex}
+  \usepackage{graphicx}                % allow us to embed graphics files
+  \DeclareGraphicsExtensions{.pdf,.png,.jpg,.jpeg} % for pdflatex we expect .pdf, .png, or .jpg files
+\else%                                 % else we use pure latex
+  \ExecuteOptions{dvips}
+  \usepackage{graphicx}                % allow us to embed graphics files
+  \DeclareGraphicsExtensions{.eps}     % for pure latex we expect eps files
+\fi%
+
+%% it is recomended to use ``\autoref{sec:bla}'' instead of ``Fig.~\ref{sec:bla}''
+\graphicspath{{figures/}{pictures/}{images/}{./}} % where to search for the images
+
+\usepackage{microtype}                 % use micro-typography (slightly more compact, better to read)
+\PassOptionsToPackage{warn}{textcomp}  % to address font issues with \textrightarrow
+\usepackage{textcomp}                  % use better special symbols
+\usepackage{mathptmx}                  % use matching math font
+\usepackage{times}                     % we use Times as the main font
+\renewcommand*\ttdefault{txtt}         % a nicer typewriter font
+\usepackage{cite}                      % needed to automatically sort the references
+\usepackage{tabu}                      % only used for the table example
+\usepackage{booktabs}                  % only used for the table example
+%% We encourage the use of mathptmx for consistent usage of times font
+%% throughout the proceedings. However, if you encounter conflicts
+%% with other math-related packages, you may want to disable it.
+
+%% In preprint mode you may define your own headline.
+%\preprinttext{To appear in IEEE Transactions on Visualization and Computer Graphics.}
+
+%% If you are submitting a paper to a conference for review with a double
+%% blind reviewing process, please replace the value ``0'' below with your
+%% OnlineID. Otherwise, you may safely leave it at ``0''.
+\onlineid{0}
+
+%% Paper title.
+\title{Visualizing Music Listening History with the Spotify API}
+%% This is how authors are specified in the journal style
+
+%% indicate IEEE Member or Student Member in form indicated below
+\author{Sara Di Bartolomeo, Eysa Lee, Amogh Pradeep, Laura South}
+\authorfooter{
+%% insert punctuation at end of each item
+\item
+ Sara Di Bartolomeo, Eysa Lee, Amogh Pradeep, and Laura South are with Northeastern University. E-mail: \{dibartolomeo.s\,$|$\,lee.ey\,$|$\,pradeep.am\,$|$\,south.l\}@husky.neu.edu.
+}
+
+%other entries to be set up for journal
+\shortauthortitle{Di Bartolomeo \MakeLowercase{\textit{et al.}}: Visualizing Music Listening History with the Spotify API}
+%\shortauthortitle{Firstauthor \MakeLowercase{\textit{et al.}}: Paper Title}
+
+%% Abstract section.
+\abstract{\eysa{}%
+} % end of abstract
+
+%% Keywords that describe your work. Will show as 'Index Terms' in journal
+%% please capitalize first letter and insert punctuation after last keyword
+\keywords{\eysa{todo}}
+
+%% ACM Computing Classification System (CCS). 
+%% See <http://www.acm.org/class/1998/> for details.
+%% The ``\CCScat'' command takes four arguments.
+
+% \CCScatlist{ % not used in journal version
+%  \CCScat{K.6.1}{Management of Computing and Information Systems}%
+% {Project and People Management}{Life Cycle};
+%  \CCScat{K.7.m}{The Computing Profession}{Miscellaneous}{Ethics}
+% }
+
+%% Uncomment below to include a teaser figure.
+\teaser{
+  \centering
+  \includegraphics[width=\linewidth]{mockup}
+  \caption{A week in music: \eysa{Tentative screenshot of our thing}.}
+	\label{fig:teaser}
+}
+
+%% Uncomment below to disable the manuscript note
+%\renewcommand{\manuscriptnotetxt}{}
+
+%% Copyright space is enabled by default as required by guidelines.
+%% It is disabled by the 'review' option or via the following command:
+\nocopyrightspace
+
+\vgtcinsertpkg
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%% START OF THE PAPER %%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{document}
+
+%% The ``\maketitle'' command must be the first command after the
+%% ``\begin{document}'' command. It prepares and prints the title block.
+
+%% the only exception to this rule is the \firstsection command
+\firstsection{Introduction}
+
+\maketitle
+
+%% \section{Introduction} %for journal use above \firstsection{..} instead
+\eysa{This is the template for the paper and required sections (as specified in the milestone document). Text and other sections will be added.\\
+Our motivation is roughly that we were curious about our own listening history and knew the data was there}.
+
+\section{Related Works}
+\eysa{Related works include Spotify's yearly end of year review and the LastFM document we found early on}
+
+\section{Process}
+\subsection{Task Analysis}
+We conducted nine short interviews with potential users of our visualization \eysa{todo: add table with summary of the results of the interview}
+
+From our interviews, we determined our domain goals to be the following:
+\begin{enumerate}
+  \item View daily listening history split by genre
+  \item View recent top artists/tracks
+  \item Compare listening history between users
+\end{enumerate}
+
+\eysa{todo: add discussino about these domain goals}
+
+\section{Design}
+
+% \begin{figure}[tb]
+%  \centering
+%  \includegraphics[width=\columnwidth]{genre_interaction}
+%  \caption{\eysa{todo: add caption}.}
+%  \label{fig:genre_interaction}
+% \end{figure}
+
+% \begin{figure}[tb]
+%  \centering
+%  \includegraphics[width=\columnwidth]{artist_interaction}
+%  \caption{\eysa{todo: add caption}.}
+%  \label{fig:artist_interaction}
+% \end{figure}
+
+% \begin{figure}[tb]
+%  \centering
+%  \includegraphics[width=\columnwidth]{track_interaction}
+%  \caption{\eysa{todo: add caption}.}
+%  \label{fig:track_interaction}
+% \end{figure}
+
+\section{Discussion}
+
+\section{Conclusion}
+
+%% if specified like this the section will be committed in review mode
+\acknowledgments{
+The authors wish to thank the teaching staff of Michelle Borkin's Spring 2019 CS 7250 class for their helpful comments and guidance.
+}
+
+%\bibliographystyle{abbrv}
+\bibliographystyle{abbrv-doi}
+%\bibliographystyle{abbrv-doi-narrow}
+%\bibliographystyle{abbrv-doi-hyperref}
+%\bibliographystyle{abbrv-doi-hyperref-narrow}
+
+\bibliography{references}
+\end{document}
+
