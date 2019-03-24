@@ -88,7 +88,7 @@
 
 %% Keywords that describe your work. Will show as 'Index Terms' in journal
 %% please capitalize first letter and insert punctuation after last keyword
-\keywords{\eysa{todo}}
+\keywords{personalized, music, history, stacked area chart\eysa{I'm not super familiar with visualization keywords... plaese help}}
 
 %% ACM Computing Classification System (CCS). 
 %% See <http://www.acm.org/class/1998/> for details.
@@ -103,7 +103,7 @@
 %% Uncomment below to include a teaser figure.
 \teaser{
   \centering
-  \includegraphics[width=\linewidth]{mockup}
+  \includegraphics[width=0.75\linewidth]{mockup}
   \caption{A week in music: \eysa{Tentative screenshot of our thing}.}
 	\label{fig:teaser}
 }
@@ -131,29 +131,64 @@
 
 \maketitle
 
-%% \section{Introduction} %for journal use above \firstsection{..} instead
-\eysa{This is the template for the paper and required sections (as specified in the milestone document). Text and other sections will be added.\\
-Our motivation is roughly that we were curious about our own listening history and knew the data was there}.
+Introduction outline:
+\begin{itemize}
+  \item Music streaming services have been adopted by a wide audience and there is all this data
+
+  \item Spotify is one of the most popular music streaming services, but the app does not currently provide users with a way to view their personal listening history
+  
+  \item Several third-party apps allow users to see their personal listening data, but none fully utilize the power of data visualizations to convey information
+
+  \item In this work we create an interactive data visualization using information available from the Spotify API to help users better understand their personal listening patterns
+  
+  \item Our contributions:
+  \begin{itemize}
+    \item Boom
+    \item Boom
+    \item Boom
+    \item Summarize our contributions
+  \end{itemize}
+\end{itemize}
 
 \section{Related Works}
-\eysa{Related works include Spotify's yearly end of year review and the LastFM document we found early on}
-\subsection{Spotify Year in Review}
+Related works outline:
+\begin{itemize}
+  \item Two main categories: official Spotify visualization and Last.fm
+  \item Go through each one separately
+\end{itemize}
 
-Introduce SpotifyWrapped (and/or year in review). It gives aggregate data (total minutes listened, top songs, top artists, top genre).\cite{Spo18} \eysa{A small note is that the card this is referenced is no longer available.}
+\subsection{Spotify's End of Year Visualization}
+
+SpotifyWrapped outline:\cite{Spo18}
+\begin{itemize}
+  \item Released by Spotify at the end of each year. Spotify sends out an email to users that have emails enabled, so this is the one that most users of Spotify are familiar with
+  \item Called different things? Most recently it was SpotifyWrapped, but previously known as Year in Review
+  \item Gives aggregate data such as total minutes listened, top songs, top artists, and top genre.
+  \item Only displays data from a fixed range of time (Jan - Oct), only displays top $n$ songs and artists; does not allow further exploration
+  \item Turns top songs into a playlist and is not accessible after a certain amount of time
+\end{itemize}
 
 \subsection{Last.fm}
 
-\eysa{Introduce Last.fm, which lets users explore their lisetning data by either connecting with their streaming service or uploading. There has much work in using this data}
-
-Pretzlav created Last.fm Explorer \cite{Pre08} \eysa{either add screenshots or describe in words. It also has a stacked bar chart}.
-
-Later, Dang, Anand, and Wilkinson created FmFinder \cite{Dan12} \eysa{Describe this one, too}
-
-More recently Boeing explore their own listening history from Last.fm and wrote up a blog post \cite{Boe16}. \eysa{Make this sound nicer}
+Last.fm outline:
+\begin{itemize}
+  \item Last.fm is a service where users connect to their streaming service or upload iTunes etc and are given an interface to explore their data. There has been much work visualizing music history using this platform
+  \item Pretzlav created Last.fm Explorer \cite{Pre08}, which had a web interface that allowed users to explore their data. It had stacked area charts\eysa{can include screenshots}. It is no longer available
+  \item Later, Dang, Anand, and Wilkinson created FmFinder \cite{Dan12} \eysa{Describe this one, too}. This one also visualizes listening history but focuses on recommending new songs
+  \item More recently Boeing explore their own listening history from Last.fm and wrote up a blog post \cite{Boe16}. It has a lot of visualizations to sift through \eysa{he's probably not the only one who has done this}
+\end{itemize}
 
 \section{Process}
+
+\subsection{Potential User Interviews}
+Potential User Interview Outline:
+\begin{itemize}
+  \item Wanted to get an idea of the listening habits of different users, what they're interested in, what they liked and didn't like about visualizations they've used before
+  \item Conducted nine short interviews with potential users
+  \item Summary of results
+\end{itemize}
+
 \subsection{Task Analysis}
-We conducted nine short interviews with potential users of our visualization \eysa{todo: add summary of the results of the interviews. Can add a table if I reaaaaally want to...}
 
 From our interviews, we determined our domain goals to be the following:
 \begin{enumerate}
@@ -163,6 +198,15 @@ From our interviews, we determined our domain goals to be the following:
 \end{enumerate}
 
 \eysa{todo: add discussion about these domain goals}
+
+\subsection{Data Acquisition and Exploratory Analysis}
+Data Acquisition and Exploratory Analysis Outline:
+\begin{itemize}
+  \item Tested fetching data using Spotify API, generally didn't find bad data
+  \item Discovered getting breakdown of music by day or hour requires retrieving many batches of last played and looking at timestamps; limitations on the granularity our visualization can display
+\end{itemize}
+
+\section{Design}
 
 \begin{figure*}
 \centering
@@ -175,31 +219,33 @@ From our interviews, we determined our domain goals to be the following:
 \label{fig:interactions}
 \end{figure*}
 
-\section{Design}
+Design outline:
+\begin{itemize}
+  \item Captured our domain goals in the final sketch of what we wanted\eysa{can add the final sketches}. Interactions with these sketches can be seen in \autoref{fig:interactions}
+  \item Talk about how the sketch accomplishes our domain goals
+  \begin{itemize}
+    \item We prioritized the first two domain goals because user interviews indicated people cared more about personal data
+  \end{itemize}
+  \item Changes between sketch and implementation. Was there anything we changed based on classmates testing our preliminary design
+  \item Implementation (screenshot and description)
+\end{itemize}
 
-Interactions can be found in \autoref{fig:interactions}.
-
-This section will address:
-\begin{enumerate}
-  \item How do we address our domain goals from before.
-  \item Usability testing. Was there anything we changed based on classmates testing our preliminary design
-\end{enumerate}
 
 \section{Discussion}
-This section will include discussion on:
-\begin{enumerate}
+Discussion outline:
+\begin{itemize}
   \item What was the response like?
   \item What were areas we wanted to explore but couldn't
   \item What could we improve?
-\end{enumerate}
+\end{itemize}
 
 \section{Conclusion}
 
 Future directions include:
-\begin{enumerate}
+\begin{itemize}
   \item Computing over the data
   \item How can we make it easier for people to compare?
-\end{enumerate}
+\end{itemize}
 
 %% if specified like this the section will be committed in review mode
 \acknowledgments{
