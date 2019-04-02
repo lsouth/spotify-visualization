@@ -1785,7 +1785,7 @@ var FETCHED_LIST = [];
 function getRecentlyPlayed(swapi, number, lst = [], next = 0) {
     var tobj = {"limit": 50}
         if(next != 0) {
-            tobj["before"] = next;
+            tobj["before"] = parseInt(next);
         }
     console.log(tobj);
     if (number > 0 && number <= 50) {
