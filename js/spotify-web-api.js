@@ -1783,17 +1783,17 @@ function initSpotifyWebApi() {
 var FETCHED_LIST = [];
 
 function getRecentlyPlayed(swapi, number, lst = [], next = 0) {
+    var tobj = {"item": 50}
+        if(next != 0) {
+            tobj["before"] = next;
+        }
     if (number > 0 && number <= 50) {
-        swapi.getMyRecentlyPlayedTracks({limit: number}).then(
+        swapi.getMyRecentlyPlayedTracks(tobj).then(
             function(d){
                 console.log("Finished data fetch: ", d);
                 FETCHED_LIST = lst.concat(d["items"]);
             });
-    } else if (number > 50) {
-        var tobj = {"item": 50}
-        if(next != 0) {
-            tobj["before"] = next;
-        }
+    } else if (number > 50) { 
         swapi.getMyRecentlyPlayedTracks(tobj).then(
             function(d){
                 console.log("Finished partial data fetch:", d);
