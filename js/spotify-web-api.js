@@ -1787,6 +1787,7 @@ function getRecentlyPlayed(swapi, number, lst = [], next = 0) {
         if(next != 0) {
             tobj["before"] = next;
         }
+    console.log(tobj);
     if (number > 0 && number <= 50) {
         swapi.getMyRecentlyPlayedTracks(tobj).then(
             function(d){
