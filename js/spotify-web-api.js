@@ -1782,5 +1782,5 @@ function initSpotifyWebApi() {
 
 function getRecentlyPlayed(swapi, number) {
     swapi.getMyRecentlyPlayedTracks({limit: 50})
-        .then(function(d){console.log(d);}
+        .then(function(d){console.log(d);});
 }
