@@ -1797,7 +1797,7 @@ function getRecentlyPlayed(swapi, number, lst = [], next = 0) {
         swapi.getMyRecentlyPlayedTracks(tobj).then(
             function(d){
                 console.log("Finished partial data fetch:", d);
-                sn = d["next"].split("=")[1].split("&")[0];
+                var sn = d["next"].split("=")[1].split("&")[0];
                 getRecentlyPlayed(swapi, number - 50, lst.concat(d["items"]), sn);
             });
     } else {
