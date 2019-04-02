@@ -1780,7 +1780,25 @@ function initSpotifyWebApi() {
         }
 }
 
-function getRecentlyPlayed(swapi, number) {
+var FETCHED_LIST = [];
+
+function getRecentlyPlayed(swapi, number, lst = [], next = 0) {
     swapi.getMyRecentlyPlayedTracks({limit: 50})
         .then(function(d){console.log(d);});
+    if (number > 0 && number <= 50) {
+        swapi.getMyRecentlyPlayedTracks({limit: number}).then(
+            function(d){
+                console.log("Finished data fetch: ", d);
+                FETCHED_LIST = lst.concat(d["items"]);
+            });
+    } else if (number > 50) {
+        swapi.getMyRecentlyPlayedTracks({limit: number}).then(
+            function(d){
+                console.log("Finished partial data fetch:", d);
+                sn = d["next"].split("=")[1].split("&")[0];
+                getRecentlyPlayed(swapi, number - 50, lst.concat(d["items"]), sn);
+            });
+    } else {
+        console.log("Invalid call to getRecentlyPlayed!");
+    }
 }
