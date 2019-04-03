@@ -1809,7 +1809,7 @@ function getRecentlyPlayed(swapi, number, lst = [], next = 0) {
 
 async function fetchGenres(swapi, l) {
     var constructed = [];
-    for(i = 0; i < l.length; i++) {
+    for(var i = 0; i < l.length; i++) {
         // Lets get the genres for the 0th artist :)
         artistID = l[i]["track"]["artists"][0]["id"];
         var info = await swapi.getArtist(artistID).then(function(d){return d;});
