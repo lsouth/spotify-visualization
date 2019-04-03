@@ -1811,7 +1811,7 @@ async function fetchGenres(swapi, l) {
     var constructed = [];
     for(var i = 0; i < l.length; i++) {
         // Lets get the genres for the 0th artist :)
-        artistID = l[i]["track"]["artists"][0]["id"];
+        var artistID = l[i]["track"]["artists"][0]["id"];
         var info = await swapi.getArtist(artistID).then(function(d){return d;});
         var newl = l[i];
         newl["artist_info"] = info;
