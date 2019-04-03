@@ -1,5 +1,5 @@
 //ps = ['short term', 'medium term', 'long term', 'long long term']
-ps = ['long term', 'medium term', 'short term']
+ps = ['short term', 'medium term', 'long term']
 streamgraph_height = window.innerHeight*0.4;
 
 
@@ -48,21 +48,25 @@ init_streamgraph = (full_data, genre_list) => {
 		.enter()
 		.append("path")
 		.datum(d => d['periods'])
-		.attr('fill', (d, i) => d3.interpolateRainbow(i/10.0))
+		.attr('fill', (d, i) => genre_color(d[0].genre_name))
 		.attr("d", area)
 		.attr("stroke", "#222")
+		.attr("class", "genre_curve")
 		.attr("stroke-width", "0px")
 		.attr('transform', 'translate('+ (smargin.left) +','+0+')')
-		.on('click', d => console.log(d))
 		.style("filter", "url(#glow)")
 		.on('mouseover', d => {
 			s = svg.selectAll('.artistlist').selectAll('.artist').filter(s => s.genres.includes(d[0].genre_name))
 			s.style('font-weight', 'bold')
 			s.each(artist => svg.selectAll('.tracklist').selectAll(".by-artist-" + artist.id).style("font-weight","bold"))
+
+			highlight_genre(d[0].genre_name)
 		})
 		.on('mouseout', d => {
 			s = svg.selectAll('.artistlist').selectAll('.artist').style('font-weight', 'normal')
 			svg.selectAll('.tracklist').selectAll(".track").style('font-weight', 'normal')
+
+			dehighlight()
 		})
 
 	periodbox = svg.selectAll('.periodbox')
@@ -96,6 +100,39 @@ init_streamgraph = (full_data, genre_list) => {
 		.attr('x', 0)
 		.attr('y', (streamgraph_height + 25) )
 		.text(d => d)
+}
+
+
+genre_color = (name) => {
+	return d3.interpolateRainbow(genre_list.indexOf(name)/10.0)
+}
+
+
+highlight_genre = (genre) => {
+	c = svg.selectAll('.genre_curve').filter(c => c[0].genre_name != genre)
+		.transition()
+		.style('fill', (d) => {
+			col = d3.hsl(genre_color(d[0].genre_name))
+			col.l -= 0.3
+			return col + ''
+		})
+		.duration(500)
+
+	svg.selectAll('.genre_curve').filter(c => c[0].genre_name == genre).transition()
+		.style('fill', (d) => {
+			col = d3.hsl(genre_color(genre))
+			col.s += 0.3
+			return col + ''
+		})
+		.duration(500)
+}
+
+
+dehighlight = () => {
+	svg.selectAll('.genre_curve')
+		.transition()
+		.style('fill', d => genre_color(d[0].genre_name))
+		.duration(500)
 }
 
 
@@ -184,6 +221,6 @@ async function loadStreamgraph() {
 	let full_data = await load_streamgraph_data()
 	let tmp = periods_by_genres(full_data)
 	full_data = tmp[1]
-	let genre_list = tmp[0]
+	window.genre_list = tmp[0]
 	init_streamgraph(full_data, genre_list);
 }
