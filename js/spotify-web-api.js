@@ -1793,16 +1793,29 @@ function getRecentlyPlayed(swapi, number, lst = [], next = 0) {
         swapi.getMyRecentlyPlayedTracks(tobj).then(
             function(d){
                 console.log("Finished data fetch: ", d);
-                FETCHED_LIST = lst.concat(d["items"]);
+                FETCHED_LIST = lst.concat(fetchGenres(swapi, d["items"]));
             });
     } else if (number > 50) { 
         swapi.getMyRecentlyPlayedTracks(tobj).then(
             function(d){
                 console.log("Finished partial data fetch:", d);
                 var sn = d["cursors"]["before"];
-                getRecentlyPlayed(swapi, number - 50, lst.concat(d["items"]), sn);
+                getRecentlyPlayed(swapi, number - 50, lst.concat(fetchGenres(swapi, d["items"])), sn);
             });
     } else {
         console.log("Invalid call to getRecentlyPlayed!");
     }
+}
+
+async function fetchGenres(swapi, l) {
+    var constructed = [];
+    for(i = 0; i < l.length; i++) {
+        // Lets get the genres for the 0th artist :)
+        artistID = l[i]["track"]["artists"][0]["id"];
+        var info = await swapi.getArtist(artistID).then(function(d){return d;});
+        var newl = l[i];
+        newl["artist_info"] = info;
+        constructed.push(newl)
+    }
+    return constructed;
 }
