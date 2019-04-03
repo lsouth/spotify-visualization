@@ -1829,7 +1829,7 @@ async function getTopArtists(swapi) {
         var info = await swapi.getMyTopArtists(tobj).then(function(d){return d;});
         ret[ranges[r]] = info;
     }
-    return info;
+    return ret;
 }
 
 async function getTopTracks(swapi) {
@@ -1841,5 +1841,5 @@ async function getTopTracks(swapi) {
         var info = await swapi.getMyTopTracks(tobj).then(function(d){return d;});
         ret[ranges[r]] = info;
     }
-    return info;
+    return ret;
 }
