@@ -1819,3 +1819,27 @@ async function fetchGenres(swapi, l) {
     }
     return constructed;
 }
+
+async function getTopArtists(swapi) {
+    var tobj = {"limit": 50};
+    var ret = {};
+    var ranges = ["short_term", "medium_term", "long_term"];
+    for(var r = 0; r < ranges.length; r++) {
+        tobj["time_range"] = ranges[r];
+        var info = await swapi.getMyTopArtists(tobj).then(function(d){return d;});
+        ret[ranges[r]] = info;
+    }
+    return info;
+}
+
+async function getTopTracks(swapi) {
+    var tobj = {"limit": 50};
+    var ret = {};
+    var ranges = ["short_term", "medium_term", "long_term"];
+    for(var r = 0; r < ranges.length; r++) {
+        tobj["time_range"] = ranges[r];
+        var info = await swapi.getMyTopTracks(tobj).then(function(d){return d;});
+        ret[ranges[r]] = info;
+    }
+    return info;
+}
