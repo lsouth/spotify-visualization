@@ -5,13 +5,11 @@ let scales = {
 };
 
 //let genres = ["pop","indie pop","rap","hiphop","alternative rock","dance pop", "electropop","rock","show tunes","classical"];
-let genres = [];
 
 function createTopTracks(tracks, timeframe){
-  console.log("Creating top tracks (" + timeframe + ")");
-  console.log(tracks);
   let trackScale = d3.scaleBand().domain(tracks.map(function(d){return d.name;})).range([30,height/2]);
   let selection = d3.select("#top-tracks-" + timeframe);
+
   selection.append("text").text(scales.timeframe(timeframe))
 
   selection.selectAll(".track")
@@ -20,7 +18,7 @@ function createTopTracks(tracks, timeframe){
     .append("text")
     .attr("class",d => "track by-artist-" + d.artists[0].id)
     .attr("y", d => trackScale(d.name))
-    .style("font-size","11pt")
+    .style("font-size","9pt")
     .text(function(d,i){
       let label = d.name;
       if(label.length > 30){
@@ -48,19 +46,16 @@ async function generateGenreList(){
 
 
 function init(){
-  let listWidth = width/6;
-  svg.append("g").attr("id","top-tracks-st").attr("transform", "translate(" + 0 + "," + height/2 + ")");
-  svg.append("g").attr("id","top-tracks-mt").attr("transform", "translate(" + 1*listWidth + "," + height/2 + ")");
-  svg.append("g").attr("id","top-tracks-lt").attr("transform", "translate(" + 2*listWidth + "," + height/2 + ")");
-  svg.append("g").attr("id","top-artists-st").attr("transform", "translate(" + 3*listWidth + "," + height/2 + ")");
-  svg.append("g").attr("id","top-artists-mt").attr("transform", "translate(" + 4*listWidth + "," + height/2 + ")");
-  svg.append("g").attr("id","top-artists-lt").attr("transform", "translate(" + 5*listWidth + "," + height/2 + ")");
+  svg.append("g").attr("id","top-tracks-st").attr('class', 'tracklist').attr("transform", "translate(" + (width - margin.left - margin.right - width/8)/6 + "," + height/2 + ")");
+  svg.append("g").attr("id","top-tracks-mt").attr('class', 'tracklist').attr("transform", "translate(" + 2*(width - margin.left - margin.right - width/8)/6 + "," + height/2 + ")");
+  svg.append("g").attr("id","top-tracks-lt").attr('class', 'tracklist').attr("transform", "translate(" + 3*(width - margin.left - margin.right - width/8)/6 + "," + height/2 + ")");
+  svg.append("g").attr("id","top-artists-st").attr('class', 'artistlist').attr("transform", "translate(" + 4*(width - margin.left - margin.right - width/8)/6 + "," + height/2 + ")");
+  svg.append("g").attr("id","top-artists-mt").attr('class', 'artistlist').attr("transform", "translate(" + 5*(width - margin.left - margin.right - width/8)/6 + "," + height/2 + ")");
+  svg.append("g").attr("id","top-artists-lt").attr('class', 'artistlist').attr("transform", "translate(" + 6*(width - margin.left - margin.right- width/8)/6 + "," + height/2 + ")");
 }
 
 
 function createTopArtists(artists, timeframe){
-  console.log(artists);
-  console.log("Creating top artists (" + timeframe + ")");
   let artistScale = d3.scaleBand().domain(artists.map(function(d){return d.name;})).range([30,height/2]);
   let selection = d3.select("#top-artists-" + timeframe);
   selection.append("text").text(scales.timeframe(timeframe))
@@ -69,9 +64,10 @@ function createTopArtists(artists, timeframe){
     .data(artists)
     .enter()
     .append("text")
+    .attr('font-family', 'Helvetica Neue, Helvetica, Arial, sans-serif')
     .attr("class",d => "artist artist-" + d.id)
     .attr("y", d => artistScale(d.name))
-    .style("font-size","11pt")
+    .style("font-size","9pt")
     .text(function(d,i){return (i+1) + ". " + d.name;})
     .on("mouseover", function(d){
       console.log(d.id);
