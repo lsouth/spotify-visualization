@@ -6,7 +6,7 @@ let scales = {
 
 //let genres = ["pop","indie pop","rap","hiphop","alternative rock","dance pop", "electropop","rock","show tunes","classical"];
 
-function createTopTracks(tracks, timeframe){
+function createTopTracks(tracks, timeframe, genre_array){
   let trackScale = d3.scaleBand().domain(tracks.map(function(d){return d.name;})).range([30,height/2]);
   let selection = d3.select("#top-tracks-" + timeframe);
 
@@ -55,7 +55,7 @@ function init(){
 }
 
 
-function createTopArtists(artists, timeframe){
+function createTopArtists(artists, timeframe, genre_array){
   let artistScale = d3.scaleBand().domain(artists.map(function(d){return d.name;})).range([30,height/2]);
   let selection = d3.select("#top-artists-" + timeframe);
   selection.append("text").text(scales.timeframe(timeframe))
@@ -70,13 +70,14 @@ function createTopArtists(artists, timeframe){
     .style("font-size","9pt")
     .text(function(d,i){return (i+1) + ". " + d.name;})
     .on("mouseover", function(d){
-      console.log(d.id);
       d3.selectAll(".by-artist-" + d.id).style("font-weight","bold");
       d3.selectAll(".artist-" + d.id).style("font-weight","bold");
+      d.genres.forEach(g => console.log(g))
     })
     .on("mouseout", function(d){
       d3.selectAll(".by-artist-" + d.id).style("font-weight","normal");
       d3.selectAll(".artist-" + d.id).style("font-weight","normal");
+      dehighlight()
     });
 
   selection.selectAll(".genre-line")
@@ -93,14 +94,15 @@ function createTopArtists(artists, timeframe){
     let lineGroup = selection.select("#genre-line-" + artist.id);
     let offset = 4;
     artist.genres.forEach(function(genre){
+      if (!genre_array.includes(genre)) return
       lineGroup.append("line")
         .attr("x1", 0)
         .attr("x2", d => scales.popularity(artist.popularity))
         .attr("y1", d => artistScale(artist.name) + offset)
         .attr("y2", d => artistScale(artist.name) + offset)
-        .style("stroke", genres.includes(genre) ? scales.color(genre) : "none")
+        .style("stroke", genre_array.includes(genre) ? genre_color(genre) : "none")
         .style("stroke-width", 2);
-      offset += genres.includes(genre) ? 3 : 0;
+      offset += genre_array.includes(genre) ? 3 : 0;
     })
     if(offset == 4){
       lineGroup.append("line")
@@ -108,22 +110,19 @@ function createTopArtists(artists, timeframe){
         .attr("x2", d => scales.popularity(artist.popularity))
         .attr("y1", d => artistScale(artist.name) + offset)
         .attr("y2", d => artistScale(artist.name) + offset)
-        .style("stroke", "black")
-        .style("stroke-width", 2);
+        //.style("stroke", "black")
+        //.style("stroke-width", 2);
     }
   })
 }
 
 
-async function addLegend(){
+async function addLegend(genre_array){
   //let genre_legend = svg.append("g").attr("transform","translate(100, 100)").attr("class","genre-legend");
   //let legend = d3.legendColor().scale(scales.color);
   //svg.select(".genre-legend").call(legend);
 
   //genres = await generateGenreList()
-  let full_data = await load_streamgraph_data();
-  let tmp = periods_by_genres(full_data);
-  let genre_array = tmp[0];
 
   let line_spacing = 12;
   let genre_legend = svg.append("g").attr("transform","translate(250, 80)")
@@ -150,25 +149,29 @@ async function addLegend(){
 }
 
 
-function loadTopTracksArtists(){
+async function loadTopTracksArtists(){
   init();
+  let full_data = await load_streamgraph_data();
+  let tmp = periods_by_genres(full_data);
+  let genre_array = tmp[0];
+
   d3.json("./data/"+user+"-short-term-top-tracks.json").then(function(tracks){
-    createTopTracks(tracks.items,"st");
+    createTopTracks(tracks.items,"st", genre_array);
   });
   d3.json("./data/"+user+"-medium-term-top-tracks.json").then(function(tracks){
-    createTopTracks(tracks.items,"mt");
+    createTopTracks(tracks.items,"mt", genre_array);
   });
   d3.json("./data/"+user+"-long-term-top-tracks.json").then(function(tracks){
-    createTopTracks(tracks.items,"lt");
+    createTopTracks(tracks.items,"lt", genre_array);
   });
   d3.json("./data/"+user+"-short-term-top-artists.json").then(function(artists){
-    createTopArtists(artists.items, "st");
+    createTopArtists(artists.items, "st", genre_array);
   });
   d3.json("./data/"+user+"-medium-term-top-artists.json").then(function(artists){
-    createTopArtists(artists.items, "mt");
+    createTopArtists(artists.items, "mt", genre_array);
   });
   d3.json("./data/"+user+"-long-term-top-artists.json").then(function(artists){
-    createTopArtists(artists.items, "lt");
-    addLegend();
+    createTopArtists(artists.items, "lt", genre_array);
+    addLegend(genre_array);
   });
 }
