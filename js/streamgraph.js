@@ -7,7 +7,7 @@ preprocess = (data) => {
 	// preprocess data
 	res = {}
 	genres = [...new Set(data.items.map(d => d.genres).flat())]
-	genres = genres.sort((a, b) => { return data.items.filter(d => d.genres.indexOf(a)!=-1).length <= data.items.filter(d => d.genres.indexOf(b)!=-1).length; }).slice(0, 10)
+	genres = genres.sort((a, b) => { return data.items.filter(d => d.genres.indexOf(a)!=-1).length <= data.items.filter(d => d.genres.indexOf(b)!=-1).length; })
 	for (g of genres){
 		res[g] = data.items.filter(d => d.genres.indexOf(g)!=-1).length
 	}
@@ -24,7 +24,6 @@ init_streamgraph = (full_data, genre_list) => {
 	let max_height = 0.7*(height - smargin.top - smargin.bottom)/2;
 	let numsongs_per_period = 50;
 	let single_step = max_height/numsongs_per_period;
-	console.log(single_step)
 
 	area = d3.area()
     	.x((d, i) => smargin.left + (i)*(width - smargin.left - smargin.right)/numsteps)
@@ -137,7 +136,7 @@ genre_color = (name) => {
 
 
 highlight_genre = (genres) => {
-	c = svg.selectAll('.genre_curve').filter(c => c[0].genre_name != genre)
+	c = svg.selectAll('.genre_curve')
 		.transition()
 		.style('fill', (d) => {
 			col = d3.hsl(genre_color(d[0].genre_name))
@@ -153,7 +152,7 @@ highlight_genre = (genres) => {
 			col.s = 1
 			return col + ''
 		})
-		.duration(500)
+		.duration(502)
 }
 
 
@@ -167,6 +166,7 @@ dehighlight = () => {
 
 periods_by_genres = (data) => {
 	res = {}
+
 	for (a of data){
 		for (p in a){
 			period = p
