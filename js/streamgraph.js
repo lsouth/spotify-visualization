@@ -1,6 +1,6 @@
 //ps = ['short term', 'medium term', 'long term', 'long long term']
 ps = ['short term', 'medium term', 'long term']
-streamgraph_height = window.innerHeight*0.4;
+
 
 
 preprocess = (data) => {
@@ -19,8 +19,12 @@ init_streamgraph = (full_data, genre_list) => {
 
 	create_glow()
 
-	let numsteps = 3 // change this in the future
-	let smargin = {right: width*10/100, left:width*10/100}
+	let numsteps = ps.length; // change this in the future
+	let smargin = {right: width*10/100, left:width*10/100, top:height*20/100, bottom: height*20/100}
+	let max_height = 0.7*(height - smargin.top - smargin.bottom)/2;
+	let numsongs_per_period = 50;
+	let single_step = max_height/numsongs_per_period;
+	console.log(single_step)
 
 	area = d3.area()
     	.x((d, i) => smargin.left + (i)*(width - smargin.left - smargin.right)/numsteps)
@@ -30,7 +34,7 @@ init_streamgraph = (full_data, genre_list) => {
     		lower_genres = full_data.filter(e => genre_list.indexOf(e.name) > this_index)
     		sum_array = lower_genres.map(e => e.periods).map(e => e.find(p => p.period == d.period)).map(e => e.count)
     		for (elem of sum_array) s += elem;
-    		return streamgraph_height - s * 10
+    		return max_height - s * single_step
     	})
     	.y0((d, i) => {
     		s = 0;
@@ -38,7 +42,7 @@ init_streamgraph = (full_data, genre_list) => {
     		lower_genres = full_data.filter(e => genre_list.indexOf(e.name) > this_index)
     		sum_array = lower_genres.map(e => e.periods).map(e => e.find(p => p.period == d.period)).map(e => e.count)
     		for (elem of sum_array) s += elem;
-    		return streamgraph_height - (d.count * 10 + s * 10)
+    		return max_height - (d.count * single_step + s * single_step)
     	})
     	.curve(d3.curveCatmullRom.alpha(0.5))
 
@@ -53,18 +57,41 @@ init_streamgraph = (full_data, genre_list) => {
 		.attr("stroke", "#222")
 		.attr("class", "genre_curve")
 		.attr("stroke-width", "0px")
-		.attr('transform', 'translate('+ (smargin.left) +','+0+')')
+		.attr('transform', 'translate('+ (smargin.left) +','+smargin.top+')')
 		.style("filter", "url(#glow)")
 		.on('mouseover', d => {
+			ns = svg.selectAll('.artistlist').selectAll('.artist').filter(s => !s.genres.includes(d[0].genre_name))
+				.transition()
+				.duration(500)
+				.style('fill', '#584b32')
+
+			na = svg.selectAll('.tracklist').selectAll('.track')
+				.transition()
+				.duration(500)
+				.style('fill', '#584b32')
+
 			s = svg.selectAll('.artistlist').selectAll('.artist').filter(s => s.genres.includes(d[0].genre_name))
 			s.style('font-weight', 'bold')
-			s.each(artist => svg.selectAll('.tracklist').selectAll(".by-artist-" + artist.id).style("font-weight","bold"))
+			s.each(artist => svg.selectAll('.tracklist').selectAll(".by-artist-" + artist.id)
+				.transition()
+				.duration(502)
+				.style('fill', '#FBE6C0')
+				.style("font-weight","bold"))
 
-			highlight_genre(d[0].genre_name)
+
+			highlight_genre([d[0].genre_name])
 		})
 		.on('mouseout', d => {
+			svg.selectAll('.artistlist').selectAll('.artist').filter(s => !s.genres.includes(d[0].genre_name))
+				.transition()
+				.duration(500)
+				.style('fill', '#FBE6C0')
 			s = svg.selectAll('.artistlist').selectAll('.artist').style('font-weight', 'normal')
-			svg.selectAll('.tracklist').selectAll(".track").style('font-weight', 'normal')
+			svg.selectAll('.tracklist').selectAll(".track")
+				.transition()
+				.duration(500)
+				.style('fill', '#FBE6C0')
+				.style('font-weight', 'normal')
 
 			dehighlight()
 		})
@@ -77,7 +104,7 @@ init_streamgraph = (full_data, genre_list) => {
 		.attr('transform', (d, i) => {
 			if (i == 0) t = 20
 			else if (i == ps.length-1) t = -20
-			return 'translate('+(t + smargin.left*2 + i * (width - smargin.left - smargin.right)/numsteps)+','+ 0 +')'
+			return 'translate('+(t + smargin.left*2 + i * (width - smargin.left - smargin.right)/numsteps)+','+ smargin.top +')'
 		})
 
 
@@ -87,41 +114,43 @@ init_streamgraph = (full_data, genre_list) => {
 
 	periodbox.append('path')
 		.attr('class', 'defline')
-		.attr('stroke', '#888')
-		.attr('stroke-width', 1)
-		.style("stroke-dasharray", ("5, 5")) 
-        .attr("d", (d, i) => line([{x:0, y:80}, {x:0, y:streamgraph_height + 10}]));
+		.attr('stroke', '#333')
+		.attr('stroke-width', 2)
+		.style("stroke-dasharray", ("10, 10")) 
+        .attr("d", (d, i) => line([{x:0, y:-max_height*0.5}, {x:0, y:max_height + 10}]));
 
 	periodbox.append('text')
 		.attr('text-anchor', 'middle')
 		.attr('font-family', 'Helvetica Neue, Helvetica, Arial, sans-serif')
-		.attr('font-size', '9pt')
+		.attr('font-size', '12pt')
 		.attr('fill', '#888')
 		.attr('x', 0)
-		.attr('y', (streamgraph_height + 25) )
+		.attr('y', (max_height + 25) )
 		.text(d => d)
 }
 
 
 genre_color = (name) => {
-	return d3.interpolateRainbow(genre_list.indexOf(name)/10.0)
+	if (name == 'other') return '#555'
+	return d3.interpolateRainbow(genre_list.indexOf(name)/(genre_list.length + 3))
 }
 
 
-highlight_genre = (genre) => {
+highlight_genre = (genres) => {
 	c = svg.selectAll('.genre_curve').filter(c => c[0].genre_name != genre)
 		.transition()
 		.style('fill', (d) => {
 			col = d3.hsl(genre_color(d[0].genre_name))
-			col.l -= 0.3
+			col.l = 0.3
+			col.s = 0.3
 			return col + ''
 		})
 		.duration(500)
 
-	svg.selectAll('.genre_curve').filter(c => c[0].genre_name == genre).transition()
+	svg.selectAll('.genre_curve').filter(c => genres.includes(c[0].genre_name)).transition()
 		.style('fill', (d) => {
-			col = d3.hsl(genre_color(genre))
-			col.s += 0.3
+			col = d3.hsl(genre_color(d[0].genre_name))
+			col.s = 1
 			return col + ''
 		})
 		.duration(500)
@@ -162,6 +191,7 @@ periods_by_genres = (data) => {
 	}
 
 	genre_list = genre_list.sort((a, b) => genre_count_total[a] < genre_count_total[b]).slice(0, 5)
+	genre_list.push('other')
 
 	res2 = []
 	for (elem in res){

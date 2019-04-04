@@ -27,12 +27,46 @@ function createTopTracks(tracks, timeframe, genre_array){
       return (i+1) + ". " + label;
     })
     .on("mouseover", function(d){
-      d3.select(this).style("font-weight","bold");
-      d3.selectAll(".artist-" + d.artists[0].id).style("font-weight","bold")
+      svg.selectAll('.track')
+        .transition()
+        .duration(500)
+        .style('fill', '#584b32')
+
+      d3.select(this)
+        .transition()
+        .duration(502)
+        .style("font-weight","bold")
+        .style('fill', '#FBE6C0')
+      
+      ns = svg.selectAll('.artistlist').selectAll('.artist')
+        .transition()
+        .duration(500)
+        .style('fill', '#584b32')
+
+      svg.selectAll(".artist-" + d.artists[0].id)
+        .transition()
+        .duration(502)
+        .style('fill', '#FBE6C0')
+        .style("font-weight","bold")
+
+      if (d3.selectAll(".artist-" + d.artists[0].id).data()[0] != undefined)
+        highlight_genre(d3.selectAll(".artist-" + d.artists[0].id).data()[0].genres)
     })
     .on("mouseout", function(d){
-      d3.select(this).style("font-weight","normal");
-      d3.selectAll(".artist-" + d.artists[0].id).style("font-weight","normal")
+      
+      svg.selectAll('.track')
+        .transition()
+        .duration(500)
+        .style('fill', '#FBE6C0')
+        .style("font-weight","normal");
+
+      d3.selectAll(".artist")
+        .transition()
+        .duration(500)
+        .style('fill', '#FBE6C0')
+        .style("font-weight","normal")
+      
+      dehighlight()
     });
 }
 
@@ -60,35 +94,69 @@ function createTopArtists(artists, timeframe, genre_array){
   let selection = d3.select("#top-artists-" + timeframe);
   selection.append("text").text(scales.timeframe(timeframe))
 
-  selection.selectAll(".artist")
+  gartists = selection.selectAll('.gartist')
     .data(artists)
     .enter()
+    .append('g')
+    .attr("transform", d => "translate(" + 0 + "," + artistScale(d.name) + ")")
+
+  gartists
     .append("text")
     .attr('font-family', 'Helvetica Neue, Helvetica, Arial, sans-serif')
-    .attr("class",d => "artist artist-" + d.id)
-    .attr("y", d => artistScale(d.name))
+    .attr("class", d => "artist artist-" + d.id)
     .style("font-size","9pt")
     .text(function(d,i){return (i+1) + ". " + d.name;})
     .on("mouseover", function(d){
-      d3.selectAll(".by-artist-" + d.id).style("font-weight","bold");
-      d3.selectAll(".artist-" + d.id).style("font-weight","bold");
-      d.genres.forEach(g => console.log(g))
+      
+      svg.selectAll('.track')
+        .transition()
+        .duration(500)
+        .style('fill', '#584b32')
+
+      d3.selectAll(".by-artist-" + d.id)
+        .transition()
+        .duration(502)
+        .style("font-weight","bold")
+        .style('fill', '#FBE6C0')
+      
+      
+      ns = svg.selectAll('.artistlist').selectAll('.artist')
+        .transition()
+        .duration(500)
+        .style('fill', '#584b32')
+
+      svg.selectAll(".artist-" + d.id)
+        .transition()
+        .duration(502)
+        .style('fill', '#FBE6C0')
+        .style("font-weight","bold")
+
+      highlight_genre(d.genres)
+
     })
     .on("mouseout", function(d){
-      d3.selectAll(".by-artist-" + d.id).style("font-weight","normal");
-      d3.selectAll(".artist-" + d.id).style("font-weight","normal");
+      svg.selectAll('.track')
+        .transition()
+        .duration(500)
+        .style('fill', '#FBE6C0')
+        .style("font-weight","normal");
+
+      d3.selectAll(".artist")
+        .transition()
+        .duration(500)
+        .style('fill', '#FBE6C0')
+        .style("font-weight","normal")
+      
       dehighlight()
     });
+
 
   selection.selectAll(".genre-line")
     .data(artists)
     .enter()
     .append("g")
     .attr("id", d => "genre-line-" + d.id)
-    /*.append("image")
-        .attr("height", 90)
-        .attr("width",90)
-        .attr("href", function(d){return d.images[0].url;});*/
+
 
   artists.forEach(function(artist){
     let lineGroup = selection.select("#genre-line-" + artist.id);
@@ -145,7 +213,7 @@ async function addLegend(genre_array){
     .attr("y", -10)
     .attr("width", 10)
     .attr("height", 10)
-    .attr("fill", (d, i) => d3.interpolateRainbow(i/10.0))
+    .attr("fill", (d, i) => genre_color(d))
 }
 
 
