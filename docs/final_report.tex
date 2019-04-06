@@ -67,7 +67,7 @@
 \onlineid{0}
 
 %% Paper title.
-\title{My Week in Music: Visualizing Music Listening History}
+\title{Visualizing Music Listening History}
 %% This is how authors are specified in the journal style
 
 %% indicate IEEE Member or Student Member in form indicated below
@@ -103,7 +103,7 @@
 %% Uncomment below to include a teaser figure.
 \teaser{
   \centering
-  \includegraphics[width=0.75\linewidth]{mockup}
+  \includegraphics[width=0.75\linewidth]{placeholder_image}
   \caption{A week in music: \eysa{Tentative screenshot of our thing}.}
 	\label{fig:teaser}
 }
@@ -180,7 +180,10 @@ Last.fm outline:
 
 \section{Process}
 
-\subsection{Potential User Interviews}
+\subsection{User Interviews}
+
+We first interviewed potential users of our visualization to determine tasks to prioritize in our design. Nine short interviews with people of varying listening habits were conducted to prevent overfitting to a single person's preferences. The interviews consisted of asking about (1) listening habits, (2) how they have previously interacted with music history visualizations if at all, (3) data they're interested in visualizing, and (4) data they're not interested in being visualized. Summaries of responses are reported in %\autoref{}
+
 Potential User Interview Outline:
 \begin{itemize}
   \item Wanted to get an idea of the listening habits of different users, what they're interested in, what they liked and didn't like about visualizations they've used before
@@ -208,16 +211,8 @@ Data Acquisition and Exploratory Analysis Outline:
 
 \section{Design}
 
-\begin{figure*}
-\centering
-\mbox{
-  \subfigure[Genre interaction.\label{fig:genre_interaction}]{\includegraphics[width=0.3\textwidth]{genre_interaction}}\quad
-  \subfigure[Artist interaction.\label{fig:artist_interaction}]{\includegraphics[width=0.3\textwidth]{artist_interaction}}\quad
-  \subfigure[Track interaction.\label{fig:track_interaction}]{\includegraphics[width=0.3\textwidth]{track_interaction}}
-}
-\caption{Primary interactions: Hovering over different areas in the visualization highlights and connects data between the stacked area chart and the two lists.\eysa{come back and make this nicer to read}}
-\label{fig:interactions}
-\end{figure*}
+\subsection{Mockup}
+\input{mockup_fig}
 
 Design outline:
 \begin{itemize}
@@ -230,13 +225,42 @@ Design outline:
   \item Implementation (screenshot and description)
 \end{itemize}
 
+\subsection{Preliminary Usability Testing}
+Outline:
+\begin{itemize}
+  \item Explain how we conducted our usability tests (Introduced our project and asked users to play around with the visualization; asked users if they could identify what particular things were supposed to represent)
+  \item Pros: color scheme, nice to look at
+  \item Cons: Hard to see when artists/tracks are bolded (doesn't stand out much); columns are not labled; no title to indicate if the visualization is a prediction or history of music listening; stream graph and lists don't fit on the screen together
+  \item How to visualize genres in stream graph without overloading it?
+\end{itemize}
+
+\input{prelim_fig}
+
+\subsection{Final Design}
+
+Modifications based on usability testing:
+\begin{itemize}
+  \item Freeze the stream graph at the top of the page and allow scrolling
+  \item 
+\end{itemize}
+
+Outline:
+\begin{itemize}
+  \item How did our final design change?
+  \item Main aspects of the final design
+\end{itemize}
 
 \section{Discussion}
+
 Discussion outline:
 \begin{itemize}
   \item What was the response like?
   \item What were areas we wanted to explore but couldn't
   \item What could we improve?
+  \item Usability testing:
+  \begin{itemize}
+    \item Early usability testing suggested users had difficulty discovering all of the features of the visualization.
+  \end{itemize}
 \end{itemize}
 
 \section{Conclusion}
