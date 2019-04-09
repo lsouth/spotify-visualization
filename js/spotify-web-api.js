@@ -1764,7 +1764,7 @@ function initSpotifyWebApi() {
 
         var token = "";
         const clientId = "ee2959225dcc4ceabddef69875f957ec";
-        const redirectUri = "https://pages.github.ccs.neu.edu/lsouth/spotify-visualization/api_test.html";
+        const redirectUri = "https://pages.github.ccs.neu.edu/lsouth/spotify-visualization/index.html";
         const scopes = [
             'user-top-read',
             'user-read-recently-played',
