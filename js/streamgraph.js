@@ -1,6 +1,7 @@
 //ps = ['short term', 'medium term', 'long term', 'long long term']
 ps = ['short term', 'medium term', 'long term']
-
+window.mousedown = false;
+window.selected_genres = [];
 
 
 preprocess = (data) => {
@@ -19,9 +20,17 @@ init_streamgraph = (full_data, genre_list) => {
 
 	create_glow()
 
+	streamgraphbrush = d3.brush()
+  		.extent([[-10, -10], [1000, 1000]])
+  		//.on('brush end', streamgraph_brushed)
+
 	let numsteps = ps.length; // change this in the future
-	let smargin = {right: width*10/100, left:width*10/100, top:height*20/100, bottom: height*20/100}
-	let max_height = 0.7*(height - smargin.top - smargin.bottom)/2;
+	let smargin = {
+		right: width*50/100, 
+		left:width*2/100, 
+		top:height*30/100, 
+		bottom: height*0/100}
+	let max_height = 1.2*(height - smargin.top - smargin.bottom)/2;
 	let numsongs_per_period = 50;
 	let single_step = max_height/numsongs_per_period;
 
@@ -45,8 +54,13 @@ init_streamgraph = (full_data, genre_list) => {
     	})
     	.curve(d3.curveCatmullRom.alpha(0.5))
 
+    streamgraph = svg.append('g')
+    	.on('mousedown', () => {window.mousedown = true;})
+    	.on('mouseup', () => window.mousedown = false)
+    	.on('mousemove', () => {})
 
-	streamgraph = svg.selectAll('.genre_curve')
+    // create streamgraph curves
+	streamgraph_paths = streamgraph.selectAll('.genre_curve')
 		.data(full_data)
 		.enter()
 		.append("path")
@@ -59,6 +73,7 @@ init_streamgraph = (full_data, genre_list) => {
 		.attr('transform', 'translate('+ (smargin.left) +','+smargin.top+')')
 		.style("filter", "url(#glow)")
 		.on('mouseover', d => {
+			//if (window.mousedown) window.selected_genres.push(d[0].genre_name)
 			ns = svg.selectAll('.artistlist').selectAll('.artist').filter(s => !s.genres.includes(d[0].genre_name))
 				.transition()
 				.duration(500)
@@ -77,8 +92,7 @@ init_streamgraph = (full_data, genre_list) => {
 				.style('fill', '#FBE6C0')
 				.style("font-weight","bold"))
 
-
-			highlight_genre([d[0].genre_name])
+			highlight_genre([d[0].genre_name] + window.selected_genres)
 		})
 		.on('mouseout', d => {
 			svg.selectAll('.artistlist').selectAll('.artist').filter(s => !s.genres.includes(d[0].genre_name))
@@ -92,8 +106,16 @@ init_streamgraph = (full_data, genre_list) => {
 				.style('fill', '#FBE6C0')
 				.style('font-weight', 'normal')
 
-			dehighlight()
+			dehighlight_streamgraph()
+			highlight_genre(window.selected_genres)	
 		})
+		.on('click', (d) => {
+			if (window.selected_genres.includes(d[0].genre_name)) window.selected_genres.splice(window.selected_genres.indexOf(d[0].genre_name), 1)
+			else window.selected_genres.push(d[0].genre_name)
+			
+			highlight_genre(window.selected_genres)	
+		})
+
 
 	periodbox = svg.selectAll('.periodbox')
 		.data(ps)
@@ -103,6 +125,7 @@ init_streamgraph = (full_data, genre_list) => {
 		.attr('transform', (d, i) => {
 			if (i == 0) t = 20
 			else if (i == ps.length-1) t = -20
+			else t = 0
 			return 'translate('+(t + smargin.left*2 + i * (width - smargin.left - smargin.right)/numsteps)+','+ smargin.top +')'
 		})
 
@@ -116,7 +139,7 @@ init_streamgraph = (full_data, genre_list) => {
 		.attr('stroke', '#333')
 		.attr('stroke-width', 2)
 		.style("stroke-dasharray", ("10, 10")) 
-        .attr("d", (d, i) => line([{x:0, y:-max_height*0.5}, {x:0, y:max_height + 10}]));
+        .attr("d", (d, i) => line([{x:0, y:0}, {x:0, y:max_height + 10}]));
 
 	periodbox.append('text')
 		.attr('text-anchor', 'middle')
@@ -126,37 +149,66 @@ init_streamgraph = (full_data, genre_list) => {
 		.attr('x', 0)
 		.attr('y', (max_height + 25) )
 		.text(d => d)
+
+	div = document.createElement("div")
+	div.innerHTML = "Spotify Visualization"
+	div.style.position = 'absolute'
+	div.style.color = lightcolor
+	div.style.bottom = '5%'
+	div.style.left = '5%'
+	div.style.fontSize = 'x-large'
+	div2 = document.createElement('div')
+	div2.innerHTML = "'Spotify Visualization' is a tool to visualize trends in your music listening habits. Everything spans over three periods of time: Short term, Mid Term and Long term. The streamgraph above represents the genres you have been listening to. " +
+		"On the right, you can find your top tracks and top artists over the three periods. Over hover a genre, a track or an artists to see additional details, or click on them in order to select them. Click on an item again to deselect it."
+	div2.style.maxWidth = width/3 + 'px'
+	div2.style.fontSize = 'small'
+	div.append(div2)
+	document.body.append(div)
 }
 
 
 genre_color = (name) => {
-	if (name == 'other') return '#555'
+	if (name == 'other') return '#333'
 	return d3.interpolateRainbow(genre_list.indexOf(name)/(genre_list.length + 3))
 }
 
 
 highlight_genre = (genres) => {
-	c = svg.selectAll('.genre_curve')
+	// manage legend
+	svg.selectAll('.legend_text').filter(d => !genres.includes(d)).attr('fill', darkcolor)
+	svg.selectAll('.legend_text').filter(d => genres.includes(d)).attr('fill', lightcolor)
+
+	svg.selectAll('.legend_rect').filter(d => !genres.includes(d)).attr('fill', d => darken_genre_color(d))
+	svg.selectAll('.legend_rect').filter(d => genres.includes(d)).attr('fill', d => genre_color(d))
+	
+	// manage paths
+	svg.selectAll('.genre_curve')
 		.transition()
-		.style('fill', (d) => {
-			col = d3.hsl(genre_color(d[0].genre_name))
-			col.l = 0.3
-			col.s = 0.3
-			return col + ''
-		})
+		.style('fill', (d) => darken_genre_color(d[0].genre_name))
 		.duration(500)
 
 	svg.selectAll('.genre_curve').filter(c => genres.includes(c[0].genre_name)).transition()
-		.style('fill', (d) => {
-			col = d3.hsl(genre_color(d[0].genre_name))
-			col.s = 1
-			return col + ''
-		})
+		.style('fill', (d) => saturate_genre_color(d[0].genre_name))
 		.duration(502)
 }
 
 
-dehighlight = () => {
+darken_genre_color = function(c){
+	col = d3.hsl(genre_color(c))
+	col.l = 0.3
+	col.s = 0.3
+	return col + ''
+}
+
+
+saturate_genre_color = function(c){
+	col = d3.hsl(genre_color(c))
+	col.s = 1
+	return col + ''
+}
+
+
+dehighlight_streamgraph = () => {
 	svg.selectAll('.genre_curve')
 		.transition()
 		.style('fill', d => genre_color(d[0].genre_name))
@@ -190,8 +242,8 @@ periods_by_genres = (data) => {
 		}
 	}
 
-	genre_list = genre_list.sort((a, b) => genre_count_total[a] < genre_count_total[b]).slice(0, 5)
-	genre_list.push('other')
+	genre_list = genre_list.sort((a, b) => genre_count_total[a] < genre_count_total[b]).slice(0, 10)
+	genre_list.unshift('other')
 
 	res2 = []
 	for (elem in res){
@@ -210,6 +262,20 @@ periods_by_genres = (data) => {
 }
 
 
+streamgraph_brushed = function(){
+	if (d3.event.selection == null) return
+  	x0 = d3.event.selection[0][0]
+  	y0 = d3.event.selection[0][1]
+  	x1 = d3.event.selection[1][0]
+  	y1 = d3.event.selection[1][1]
+
+  	paths = d3.selectAll('.genre_curve').each(p => console.log(p))
+  	for (path of paths){
+  		console.log(path)
+  	}
+}
+
+
 load_streamgraph_data = () => {
 	return new Promise(function(resolve, reject){
         var swapi = initSpotifyWebApi();
@@ -220,6 +286,7 @@ load_streamgraph_data = () => {
         resolve(full_data);
     });
 }
+
 
 create_glow = () => {
 	//Container for the gradients
@@ -244,5 +311,22 @@ async function loadStreamgraph() {
 	let tmp = periods_by_genres(full_data)
 	full_data = tmp[1]
 	window.genre_list = tmp[0]
+
+	// fill other genres
+    other = {
+    	"name":"other", 
+    	"periods": []
+    }
+
+    for (period of ps){
+    	other.periods.push({
+    		"period": period,
+    		"count":  50 - full_data.map(e => e.periods).map(e => e.find(p => p.period == period)).map(e => e.count).reduce((a, b) => a+b),
+    		"genre_name": "other"
+    	})
+    }
+
+    full_data.unshift(other)
+
 	init_streamgraph(full_data, genre_list);
 }

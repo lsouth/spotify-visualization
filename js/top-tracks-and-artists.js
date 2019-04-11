@@ -1,13 +1,16 @@
 let scales = {
-  timeframe: d3.scaleOrdinal().domain(["st","mt","lt"]).range(["Short Term", "Medium Term", "Long Term"]),
+  timeframe: d3.scaleOrdinal().domain(["st","mt","lt"]).range(["Short", "Mid", "Long"]),
   color: d3.scaleOrdinal(d3.schemeCategory10),
   popularity: d3.scaleLinear().domain([0,100]).range([10,150])
 };
 
+lightcolor = '#FBE6C0'
+darkcolor = '#584b32'
+darkercolor = '#1e1e1e'
+brush_selected_tracks = null
+text_size = '8pt'
 
 function createTopTracks(tracks, timeframe, genre_array){
-
-  
 
   //.append("g")
   //.attr('transform', d => 'translate(' + (width - margin.left - margin.right - width/8)/6 + ', ' + height/2 +')')
@@ -17,70 +20,109 @@ function createTopTracks(tracks, timeframe, genre_array){
   let selection = d3.select("#top-tracks-" + timeframe);
 
   selection.append("text").text(scales.timeframe(timeframe))
+    .attr('font-size', 'medium')
+
+  // HACKY THING
+  tracks = tracks.slice(0, 16)
+  for (track of tracks) {
+    track.val1 = Math.random()*100
+    track.val2 = Math.random()*100
+    track.val3 = Math.random()*100
+  }
 
   gtracks = selection.selectAll(".track")
     .data(tracks)
     .enter()
     .append("g")
-    .attr("pointer-events", "all")
-    .attr("class",d => "track by-artist-" + d.artists[0].id)
-    
-
-  gtracks.append("text")
-    .attr("y", d => trackScale(d.name))
-    .style("font-size","9pt")
-    .attr("pointer-events", "all")
-    .text(function(d,i){
-      let label = d.name;
-      if(label.length > 30){
-        label = d.name.substring(0,30) + "...";
-      }
-      return (i+1) + ". " + label;
-    })
-    .on("mouseover", function(d){
+    .attr("class",d => "track by-artist-" + d.artists[0].id)    
+    .attr("transform", (d, i) => "translate(" + 0 + "," + ((i+1)*(height*85/100)/tracks.length) + ")")
+     .on("mouseover", function(d){
+      highlight_tracks(d3.select(this))
+      a = svg.selectAll('.artist').filter(a => a.name == d.artists[0].name)
+      highlight_artists([a.data()[0]])
+      
+      /*
       svg.selectAll('.track').selectAll('text')
         .transition()
         .duration(500)
-        .style('fill', '#584b32')
+        .style('fill', darkcolor)
 
       d3.select(this)
         .transition()
         .duration(502)
         .style("font-weight","bold")
-        .style('fill', '#FBE6C0')
+        .style('fill', lightcolor)
+      
       
       ns = svg.selectAll('.artistlist').selectAll('.artist')
         .transition()
         .duration(500)
-        .style('fill', '#584b32')
+        .style('fill', darkcolor)
 
       svg.selectAll(".artist-" + d.artists[0].id)
         .transition()
         .duration(502)
-        .style('fill', '#FBE6C0')
-        .style("font-weight","bold")
+        .style('fill', lightcolor)
+        .style("font-weight","bold")*/
 
       if (d3.selectAll(".artist-" + d.artists[0].id).data()[0] != undefined)
         highlight_genre(d3.selectAll(".artist-" + d.artists[0].id).data()[0].genres)
     })
     .on("mouseout", function(d){
-      
-      svg.selectAll('.track').selectAll('text')
-        .transition()
-        .duration(500)
-        .style('fill', '#FBE6C0')
-        .style("font-weight","normal");
-
-      d3.selectAll(".artist")
-        .transition()
-        .duration(500)
-        .style('fill', '#FBE6C0')
-        .style("font-weight","normal")
-      
-      dehighlight()
+      dehighlight_tracks()
+      dehighlight_artists()
+      dehighlight_streamgraph()
     });
 
+  gtracks.append("text")
+    .style("font-size", text_size)
+    .text(function(d,i){
+      let label = d.name;
+      if(label.length > 20) label = d.name.substring(0,20) + "...";    
+      return (i+1) + ". " + label;
+    })
+   
 
+      // POPULARITY LINE
+  gtracks.append('line')
+    .attr("x1", 0)
+    .attr("x2", d => 0)
+    .attr("y1", d => 12)
+    .attr("y2", d => 12)
+    .style("stroke", "#FBE6C0")
+    .style("stroke-width", 5)
+    .attr("class", "lineval1")
+    .style("opacity", 0)
+    .style("stroke-linecap", "round")
+
+  gtracks.append('line')
+    .attr("x1", 0)
+    .attr("x2", d => 0)
+    .attr("y1", d => 24)
+    .attr("y2", d => 24)
+    .style("stroke", "#FBE6C0")
+    .style("stroke-width", 5)
+    .attr("class", "lineval2")
+    .style("opacity", 0)
+    .style("stroke-linecap", "round")
+
+  gtracks.append('text')
+    .attr("class", "popularitytext")
+    .attr("x", 0)
+    .attr("y", d => 15)
+    .style("fill", "#584b32")
+    .style("font-size", "x-small")
+    .attr("class", "textval1")
+    .text(d => Math.round(d.val1))
+
+  gtracks.append('text')
+    .attr("class", "popularitytext")
+    .attr("x", 0)
+    .attr("y", d => 30)
+    .style("fill", "#584b32")
+    .attr("class", "textval2")
+    .style("font-size", "x-small")
+    .text(d => Math.round(d.val2))
 }
 
 
@@ -94,23 +136,69 @@ async function generateGenreList(){
 
 function init(){
 
-  let column_length = 0.9*(width - margin.left - margin.right - width/8)/6
-  let column_space = 200
+  let column_length = 1.3*(width - margin.left - margin.right - width/8)/(6*2)
+  let column_space = 2.1*width/3
 
   trackbrush = d3.brush()
-  .extent([[0, 0], [600, 600]])
+  .extent([[-10, -10], [600, 600]])
   .on('brush end', trackbrushed)
 
-  top_tracks = svg.append("g").attr("id", "top-tracks").attr("transform", "translate(" + column_length + "," + height/2 + ")")
-  top_tracks.append('g').call(trackbrush)
+  top_tracks = svg.append("g").attr("id", "top-tracks").attr("transform", "translate(" + (column_length + width/3) + "," + height*8/100 + ")")
+  //top_tracks.append('g').call(trackbrush)
+
+  top_tracks.append("text")
+    .text("top tracks")
+    .attr("x", column_length + column_length/2 - 5)
+    .attr("y", -50)
+    .attr("opacity", 0.5)
+    .attr("text-anchor", "middle")
+
+  top_tracks.append("rect")
+    .attr("x", -10)
+    .attr("y", 10)
+    .attr("width", column_length)
+    .attr("height", height)
+    .attr("fill", darkercolor)
+
   top_tracks.append("g").attr("id","top-tracks-st").attr('class', 'tracklist').attr("transform", "translate(" + 0 + "," + 0 + ")");
   top_tracks.append("g").attr("id","top-tracks-mt").attr('class', 'tracklist').attr("transform", "translate(" + column_length + "," + 0 + ")");
+  
+  top_tracks.append("rect")
+    .attr("x", 2*column_length -10)
+    .attr("y", 10)
+    .attr("width", column_length)
+    .attr("height", height)
+    .attr("fill", darkercolor)
+
   top_tracks.append("g").attr("id","top-tracks-lt").attr('class', 'tracklist').attr("transform", "translate(" + 2*column_length + "," + 0 + ")");
   
-  top_artists = svg.append("g").attr("id", "top-artists")
-  top_artists.append("g").attr("id","top-artists-st").attr('class', 'artistlist').attr("transform", "translate(" + (4*column_length + column_space) + "," + height/2 + ")");
-  top_artists.append("g").attr("id","top-artists-mt").attr('class', 'artistlist').attr("transform", "translate(" + (5*column_length + column_space) + "," + height/2 + ")");
-  top_artists.append("g").attr("id","top-artists-lt").attr('class', 'artistlist').attr("transform", "translate(" + (6*column_length + column_space) + "," + height/2 + ")");
+  top_artists = svg.append("g").attr("id", "top-artists").attr("transform", "translate(" + (column_space) + "," + (height*8/100) + ")")
+  
+  top_artists.append("text")
+    .text("top artists")
+    .attr("x", column_length + column_length/2 - 5)
+    .attr("y", -50)
+    .attr("opacity", 0.5)
+    .attr("text-anchor", "middle")
+
+  top_artists.append("rect")
+    .attr("x", -10)
+    .attr("y", 10)
+    .attr("width", column_length)
+    .attr("height", height)
+    .attr("fill", darkercolor)
+
+  top_artists.append("g").attr("id","top-artists-st").attr('class', 'artistlist').attr("transform", "translate(" + (0*column_length) + "," + 0 + ")");
+  top_artists.append("g").attr("id","top-artists-mt").attr('class', 'artistlist').attr("transform", "translate(" + (1*column_length) + "," + 0 + ")");
+  
+  top_artists.append("rect")
+    .attr("x", 2*column_length -10)
+    .attr("y", 10)
+    .attr("width", column_length)
+    .attr("height", height)
+    .attr("fill", darkercolor)
+
+  top_artists.append("g").attr("id","top-artists-lt").attr('class', 'artistlist').attr("transform", "translate(" + (2*column_length) + "," + 0 + ")");
 }
 
 
@@ -119,88 +207,30 @@ function createTopArtists(artists, timeframe, genre_array){
   let selection = d3.select("#top-artists-" + timeframe);
   selection.append("text").text(scales.timeframe(timeframe))
 
+  artists = artists.slice(0, 16)
+
   gartists = selection.selectAll('.gartist')
     .data(artists)
     .enter()
     .append('g')
-    //.attr('id', d => d.id)
     .attr("class", d => "artist artist-" + d.id)
-    .attr("transform", d => "translate(" + 0 + "," + artistScale(d.name) + ")")
+    .attr("transform", (d, i) => "translate(" + 0 + "," + ((i+1)*(height*85/100)/artists.length) + ")")
     .on("mouseover", function(d){
-      
-      svg.selectAll('.track')
-        .transition()
-        .duration(500)
-        .style('fill', '#584b32')
-
-      d3.selectAll(".by-artist-" + d.id)
-        .transition()
-        .duration(502)
-        .style("font-weight","bold")
-        .style('fill', '#FBE6C0')
-      
-      svg.selectAll('g.artist-' + d.id).selectAll('line')
-        .transition()
-        .duration(500)
-        .attr("x2", d => scales.popularity(d.popularity))
-        .style("opacity", 1)
-
-      svg.selectAll('g.artist-' + d.id).selectAll('.popularitytext')
-        .transition()
-        .duration(500)
-        .attr("x", d => scales.popularity(d.popularity) + 10)
-        .style("fill", '#FBE6C0')
-
-      ns = svg.selectAll('.artistlist').selectAll('.artist')
-        .transition()
-        .duration(500)
-        .style('fill', '#584b32')
-
-      svg.selectAll(".artist-" + d.id)
-        .transition()
-        .duration(502)
-        .style('fill', '#FBE6C0')
-        .style("font-weight","bold")
-
+      highlight_artists([d])
+      highlight_tracks(svg.selectAll('.track').filter(t => t.artists[0].id == d.id))
       highlight_genre(d.genres)
-
     })
 
   gartists
     .append("text")
-    .attr('font-family', 'Helvetica Neue, Helvetica, Arial, sans-serif')
-    .style("font-size","9pt")
+    .style("font-size", text_size)
     .text(function(d,i){return (i+1) + ". " + d.name;})
 
     .on("mouseout", function(d){
-
-      svg.selectAll('g.artist').selectAll('line')
-        .transition()
-        .duration(500)
-        .attr("x2", d => 0)
-        .style("opacity", 0)
-
-      svg.selectAll('g.artist-' + d.id).selectAll('.popularitytext')
-        .transition()
-        .duration(500)
-        .attr("x", 0)
-        .style("fill", '#584b32')
-
-      svg.selectAll('.track')
-        .transition()
-        .duration(500)
-        .style('fill', '#FBE6C0')
-        .style("font-weight","normal");
-
-      d3.selectAll(".artist")
-        .transition()
-        .duration(500)
-        .style('fill', '#FBE6C0')
-        .style("font-weight","normal")
-      
-      dehighlight()
+      dehighlight_tracks()
+      dehighlight_artists()
+      dehighlight_streamgraph()
     })
-    .on('click', d => console.log(d))
 
   // LITTLE GENRE CIRCLES
   gartists.selectAll('.genrecircle')
@@ -239,30 +269,119 @@ function createTopArtists(artists, timeframe, genre_array){
 }
 
 
-async function addLegend(genre_array){
+highlight_tracks = (tracks) => {
+  svg.selectAll('.track')
+    .transition()
+    .duration(500)
+    .style('fill', darkcolor)
 
-  let line_spacing = 12;
-  let genre_legend = svg.append("g").attr("transform","translate(250, 80)")
+  tracks
+    .transition()
+    .duration(502)
+    .style("font-weight","bold")
+    .style('fill', lightcolor)
 
-  let legend_lines = genre_legend.selectAll(".dot-legend")
-    .data(genre_array)
-    .enter()
-    .append("g")
-    .attr("transform", (d, i) => "translate(0," + i*line_spacing + ")")
+  tracks.selectAll('.lineval1')
+    .transition()
+    .duration(500)
+    .attr("x2", d => d.val1)
+    .style("opacity", 1)
 
-  legend_lines.append("text")
+  tracks.selectAll('.lineval2')
+    .transition()
+    .duration(500)
+    .attr("x2", d => d.val2)
+    .style("opacity", 1)
+
+  tracks.selectAll('.textval1')
+      .transition()
+      .duration(500)
+      .attr("x", d => d.val1 + 10)
+      .style("fill", lightcolor)
+
+  tracks.selectAll('.textval2')
+      .transition()
+      .duration(500)
+      .attr("x", d => d.val2 + 10)
+      .style("fill", lightcolor)
+}
+
+
+dehighlight_tracks = () => {
+  svg.selectAll('.track').selectAll('text')
+    .transition()
+    .duration(503)
+    .style('fill', lightcolor)
+    .style("font-weight","normal");
+
+  svg.selectAll('.track').selectAll('line')
+    .transition()
+    .duration(500)
+    .attr("x2", d => 0)
+    .style("opacity", 0)
+
+  svg.selectAll('.track').selectAll('.textval1')
+    .transition()
+    .duration(500)
     .attr("x", 0)
-    .attr("y", 0)
-    .attr("font-size", "small")
-    .attr("text-anchor", "end")
-    .text(d => d)
+    .style("fill", darkcolor)
 
-  legend_lines.append("rect")
-    .attr("x", 10)
-    .attr("y", -10)
-    .attr("width", 10)
-    .attr("height", 10)
-    .attr("fill", (d, i) => genre_color(d))
+  svg.selectAll('.track').selectAll('.textval2')
+    .transition()
+    .duration(500)
+    .attr("x", 0)
+    .style("fill", darkcolor)
+}
+
+
+highlight_artists = (artists) => {
+
+  ns = svg.selectAll('.artistlist').selectAll('.artist')
+      .transition()
+      .duration(500)
+      .style('fill', darkcolor)
+
+  if (artists[0] == undefined) return
+
+  for (d of artists){
+    svg.selectAll('g.artist-' + d.id).selectAll('line')
+        .transition()
+        .duration(500)
+        .attr("x2", d => scales.popularity(d.popularity))
+        .style("opacity", 1)
+
+    svg.selectAll('g.artist-' + d.id).selectAll('.popularitytext')
+      .transition()
+      .duration(500)
+      .attr("x", d => scales.popularity(d.popularity) + 10)
+      .style("fill", lightcolor)
+
+    svg.selectAll(".artist-" + d.id)
+      .transition()
+      .duration(502)
+      .style('fill', lightcolor)
+      .style("font-weight","bold")
+  }
+}
+
+dehighlight_artists = () => {
+  svg.selectAll('g.artist').selectAll('line')
+    .transition()
+    .duration(500)
+    .attr("x2", d => 0)
+    .style("opacity", 0)
+
+  svg.selectAll('.artist').selectAll('.popularitytext')
+    .transition()
+    .duration(500)
+    .attr("x", 0)
+    .style("fill", darkcolor)
+    
+  d3.selectAll(".artist")
+    .transition()
+    .duration(500)
+    .style('fill', lightcolor)
+    .style("font-weight","normal")
 }
 
 
@@ -273,13 +392,18 @@ trackbrushed = () => {
   x1 = d3.event.selection[1][0]
   y1 = d3.event.selection[1][1]
 
-  full_nodes = svg.select('#top-tracks').selectAll('g.track').nodes()
-  for (node of full_nodes){
-    let box = node.getBBox() 
-    if (box.x - svg.select('#top-tracks').node().getBBox().x > x0){
-      console.log(node)
-    }
-  }
+  highlight_tracks(svg.select('#top-tracks').selectAll('g.track').filter(t => {
+    box = svg.select('#top-tracks').selectAll('g.track').filter(n => t == n).node().getBoundingClientRect()
+    boxx = box.x
+    boxy = box.y
+    brushx0 = x0 + svg.select('#top-tracks').node().getBoundingClientRect().x
+    brushx1 = x1 + svg.select('#top-tracks').node().getBoundingClientRect().x
+    brushy0 = y0 + svg.select('#top-tracks').node().getBoundingClientRect().y
+    brushy1 = y1 + svg.select('#top-tracks').node().getBoundingClientRect().y
+    if (brushx0 < boxx && boxx < brushx1 && brushy0 < boxy && boxy < brushy1) {
+      return true
+    } else return false
+  }))
 }
 
 
