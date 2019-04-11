@@ -1763,8 +1763,10 @@ function initSpotifyWebApi() {
         const authEndpoint = 'https://accounts.spotify.com/authorize';
 
         var token = "";
-        const clientId = "bcee07551e034d01a08d171dd990c071";
-        const redirectUri = "https://pages.github.ccs.neu.edu/lsouth/spotify-visualization/api_test.html";
+
+        const clientId = "ee2959225dcc4ceabddef69875f957ec";
+        const redirectUri = "https://pages.github.ccs.neu.edu/lsouth/spotify-visualization/index.html";
+
         const scopes = [
             'user-top-read',
             'user-read-recently-played',
