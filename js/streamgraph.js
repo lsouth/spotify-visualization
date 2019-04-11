@@ -281,7 +281,7 @@ load_streamgraph_data = () => {
         var swapi = initSpotifyWebApi();
         getTopArtists(swapi).then(function(full_data){
             Object.keys(full_data).map(function(k, i){
-                full_data[i] = process(full_data[i]);
+                full_data[i] = preprocess(full_data[i]);
             });
             resolve(full_data);
         });
