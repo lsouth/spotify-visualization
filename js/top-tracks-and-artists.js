@@ -413,23 +413,16 @@ async function loadTopTracksArtists(){
   let tmp = periods_by_genres(full_data);
   let genre_array = tmp[0];
 
-  d3.json("./data/"+user+"-short-term-top-tracks.json").then(function(tracks){
-    createTopTracks(tracks.items,"st", genre_array);
-  });
-  d3.json("./data/"+user+"-medium-term-top-tracks.json").then(function(tracks){
-    createTopTracks(tracks.items,"mt", genre_array);
-  });
-  d3.json("./data/"+user+"-long-term-top-tracks.json").then(function(tracks){
-    createTopTracks(tracks.items,"lt", genre_array);
-  });
-  d3.json("./data/"+user+"-short-term-top-artists.json").then(function(artists){
-    createTopArtists(artists.items, "st", genre_array);
-  });
-  d3.json("./data/"+user+"-medium-term-top-artists.json").then(function(artists){
-    createTopArtists(artists.items, "mt", genre_array);
-  });
-  d3.json("./data/"+user+"-long-term-top-artists.json").then(function(artists){
-    createTopArtists(artists.items, "lt", genre_array);
+    var swapi = initSpotifyWebApi();
+    getTopTracks(swapi).then(function(topTracks) {
+        createTopTracks(topTracks["short_term"]["items"], "st", genre_array);
+        createTopTracks(topTracks["medium_term"]["items"], "mt", genre_array);
+        createTopTracks(topTracks["long_term"]["items"], "lt", genre_array);
+    });
+    getTopArtists(swapi).then(function(topArtists) {
+        createTopArtists(topArtists["short_term"]["items"], "st", genre_array);
+        createTopArtists(topArtists["medium_term"]["items"], "mt", genre_array);
+        createTopArtists(topArtists["long_term"]["items"], "lt", genre_array);
+    });
     addLegend(genre_array);
-  });
 }
