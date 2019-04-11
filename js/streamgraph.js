@@ -280,10 +280,14 @@ load_streamgraph_data = () => {
 	return new Promise(function(resolve, reject){
         var swapi = initSpotifyWebApi();
         getTopArtists(swapi).then(function(d){
-            console.log(preprocess(d["short_term"]));
-            console.log(preprocess(d["medium_term"]));
-            console.log(preprocess(d["long_term"]));
-            resolve(d);
+            var d0 = preprocess(d["short_term"]);
+            var d1 = preprocess(d["medium_term"]);
+            var d2 = preprocess(d["long_term"]);
+            var full_data = [];
+            full_data.push({'short term': d0});
+            full_data.push({'medium term': d1});
+            full_data.push({'long term': d2});
+            resolve(full_data);
         });
     });
 }
