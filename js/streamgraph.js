@@ -212,21 +212,13 @@ periods_by_genres = (data) => {
 
 load_streamgraph_data = () => {
 	return new Promise(function(resolve, reject){
-		full_data = [];
-		d3.json('data/'+user+'-long-term-top-artists.json').then(function(data, error){
-			long_term = preprocess(data);
-			d3.json('data/'+user+'-short-term-top-artists.json').then(function(data, error){
-				short_term = preprocess(data);
-				d3.json('data/'+user+'-medium-term-top-artists.json').then(function(data, error){
-					medium_term = preprocess(data);
-					full_data.push({'short term': short_term});
-					full_data.push({'medium term': medium_term});
-					full_data.push({'long term': long_term});
-					resolve(full_data);
-				})
-			})
-		});
-	});
+        var swapi = initSpotifyWebApi();
+        var full_data = await getTopArtists(swapi);
+        Object.keys(full_data).map(function(k, i){
+            full_data[i] = process(full_data[i]);
+        });
+        resolve(full_data);
+    });
 }
 
 create_glow = () => {
