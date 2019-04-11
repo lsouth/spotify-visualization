@@ -279,12 +279,12 @@ streamgraph_brushed = function(){
 load_streamgraph_data = () => {
 	return new Promise(function(resolve, reject){
         var swapi = initSpotifyWebApi();
-        var full_data = getTopArtists(swapi).then(() =>
+        getTopArtists(swapi).then(function(full_data){
             Object.keys(full_data).map(function(k, i){
                 full_data[i] = process(full_data[i]);
             });
             resolve(full_data);
-        );
+        });
     });
 }
 
