@@ -53,7 +53,9 @@
 \renewcommand*\ttdefault{txtt}         % a nicer typewriter font
 \usepackage{cite}                      % needed to automatically sort the references
 \usepackage{tabu}                      % only used for the table example
+
 \usepackage{booktabs}                  % only used for the table example
+
 %% We encourage the use of mathptmx for consistent usage of times font
 %% throughout the proceedings. However, if you encounter conflicts
 %% with other math-related packages, you may want to disable it.
@@ -83,7 +85,7 @@
 %\shortauthortitle{Firstauthor \MakeLowercase{\textit{et al.}}: Paper Title}
 
 %% Abstract section.
-\abstract{\eysa{todo}%
+\abstract{\eysa{Spotify is widely popular, and there's an abundance of data it collects. However, Spotify does not have a way for users to visualize their music history. Things exist, but they don't utilize the power of data visualization. We create a visualization that allows users to look at their short term, medium term, and long term listening habits. stuff stuff stuff stuff stuff make this longer blah blah blah}%
 } % end of abstract
 
 %% Keywords that describe your work. Will show as 'Index Terms' in journal
@@ -103,8 +105,8 @@
 %% Uncomment below to include a teaser figure.
 \teaser{
   \centering
-  \includegraphics[width=0.75\linewidth]{placeholder_image}
-  \caption{A week in music: \eysa{Tentative screenshot of our thing}.}
+  \includegraphics[width=0.75\linewidth]{placeholder_image2}
+  \caption{\eysa{Tentative screenshot of our thing}.}
 	\label{fig:teaser}
 }
 
@@ -153,16 +155,14 @@ Another popular class of third-party applications are simply scripts written by 
 
 \subsection{Task Analysis}
 
+In order to determine tasks to prioritize in our design, we interviewed potential users of our visualization. Nine short interviews with people of varying listening habits were conducted to prevent overfitting to a single person's preferences. The interviews consisted of asking about (1) listening habits, (2) previous interactions with personalized music history visualizations, if at all, (3) data they're interested in visualizing, and (4) data they're not interested in being visualized. While all of the responses were unique and many of the users interviewed had vastly different ideas of what they would want out of a music history visualization, four main points appeared in many of the interviews. These four main points and each user's stance on these points are summarized in \autoref{tab:interviews}.
+
 \input{tab_interviews}
 
-In order to determine tasks to prioritize in our design, we interviewed potential users of our visualization. Nine short interviews with people of varying listening habits were conducted to prevent overfitting to a single person's preferences. The interviews consisted of asking about (1) listening habits, (2) previous interactions with personalized music history visualizations, if at all, (3) data they're interested in visualizing, and (4) data they're not interested in being visualized. Summaries of responses are reported in \autoref{tab:interviews}.
+From our interviews, we determined our domain goals to be enabling users to view daily listening history split by genre, view recent top artists/tracks, and compare listening histories between users. The domain goals, abstract tasks, and priorities for the tasks can be found in \autoref{tab:taskanalysis}.
 
-From our interviews, we determined our domain goals to be the following:
-\begin{enumerate}
-  \item View daily listening history split by genre
-  \item View recent top artists/tracks
-  \item Compare listening history between users
-\end{enumerate}
+\input{tab_taskanalysis}
+
 
 \eysa{todo: add discussion about these domain goals}
 

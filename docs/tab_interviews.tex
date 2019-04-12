@@ -3,13 +3,10 @@
   \label{tab:interviews}
   \scriptsize%
     \centering%
-  \begin{tabu}{%
-    r%
-    *{7}{c}%
-    *{2}{r}%
-    }
+  \rowcolors{2}{gray!25}{white}
+  \begin{tabular}{l>{\centering\arraybackslash}p{1.9cm}>{\centering\arraybackslash}p{1.25cm}>{\centering\arraybackslash}p{1.05cm}>{\centering\arraybackslash}p{1.2cm}}
   \toprule
-    & \rotatebox{90}{Personal Stats} \rotatebox{90}{(e.g. Top Tracks)} & \rotatebox{90}{Comparing data} \rotatebox{90}{with others} & \rotatebox{90}{Change over time} & \rotatebox{90}{`Interesting' Stats} \\
+    & {Personal Stats (e.g. Top Tracks)} & {Comparing data with others} & {Change over time} & {`Interesting' Stats} \\
   \midrule
   Megan & \cmark & \cmark & \cmark & \cmark \\
   Matthew & \cmark & \cmark & \cmark & \cmark \\
@@ -21,7 +18,8 @@
   Connor & \xmark & \cmark & - & - \\
   Yash & \xmark & - & - & \cmark \\
   \midrule
-  \textbf{Sums (\cmark:\xmark)} & \textbf{5:4} & \textbf{6:2} & \textbf{5:1} & \textbf{4:1} \\
+  \rowcolor{white}
+  \textbf{Totals (\cmark:\xmark)} & \textbf{5:4} & \textbf{6:2} & \textbf{5:1} & \textbf{4:1} \\
   \bottomrule
-  \end{tabu}%
+  \end{tabular}%
 \end{table}
