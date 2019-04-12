@@ -131,54 +131,25 @@
 
 \maketitle
 
-Introduction outline:
-\begin{itemize}
-  \item Music streaming services have been adopted by a wide audience and there is all this data
-
-  \item Spotify is one of the most popular music streaming services, but the app does not currently provide users with a way to view their personal listening history
-  
-  \item Several third-party apps allow users to see their personal listening data, but none fully utilize the power of data visualizations to convey information
-
-  \item In this work we create an interactive data visualization using information available from the Spotify API to help users better understand their personal listening patterns
-  
-  \item Our contributions:
-  \begin{itemize}
-    \item Boom
-    \item Boom
-    \item Boom
-    \item Summarize our contributions
-  \end{itemize}
-\end{itemize}
+Spotify is one of the most popular music streaming service, but the app does not currently provide users with a way to view their personal listening history. Several third-party apps allow users to see their personal listening data, but none fully utilize the power of data visualizations to convey information. In this work we create an interactive data visualization using information available from the Spotify API to help users better understand their personal listening patterns.
 
 \section{Related Works}
-Related works outline:
-\begin{itemize}
-  \item Two main categories: official Spotify visualization and standalone services
-  \item Go through each one separately
-\end{itemize}
+Many applications exist to visualization a user's Spotify listening history, with usages and data being displayed varying. We will consider the related works as two broad categories: (1) Spotify's official end of year visualization and (2) third-party applications.
 
 \subsection{Spotify's End of Year Visualization}
 
-SpotifyWrapped outline:\cite{Spo18}
-\begin{itemize}
-  \item Released by Spotify at the end of each year. Spotify sends out an email to users that have emails enabled, so this is the one that most users of Spotify are familiar with
-  \item Called different things? Most recently it was SpotifyWrapped, but previously known as Year in Review
-  \item Gives aggregate data such as total minutes listened, top songs, top artists, and top genre.
-  \item Only displays data from a fixed range of time (Jan - Oct), only displays top $n$ songs and artists; does not allow further exploration
-  \item Turns top songs into a playlist and is not accessible after a certain amount of time
-\end{itemize}
+While generally Spotify does not provide user's with a way to visualize their personal listening history, at the end of each year Spotify releases a visualization `summarizing' a user's listening history for the past year\cite{Spo18}.
 
-\subsection{Standalone services}
+This visual summary has gone by different names over the years, such as \emph{SpotifyWrapped} and \emph{Year in Review}, but the purpose of the visualization has remained fairly consistent. It focuses on giving users an overview of their year by displaying aggregated data, such as total minutes listened, top tracks, top artists, and top genre. Additionally, it only displays data from a fixed range of time (January to October) and only displays a fixed number of tracks and artists. While this accomplishes the purpose of giving a year summary for a user, it does not provide users much freedom in exploring their data. This visualization has the additional drawback of only being available for a limited amount of time each year.
 
-Outline:
-\begin{itemize}
-  \item Services exist like Last.fm where users connect to their streaming services or upload their iTunes etc and are given an interface to explore their data
-  \item Pretzlav created Last.fm Explorer \cite{Pre08}, which had a web interface that allowed users to explore their data. It had stacked area charts\eysa{can include screenshots}. It is no longer available
-  \item Many scripts exist where people have explored their listening history (for example \cite{Boe16})
-  \item Say biggest difference with ours from theirs is that ours is a website people log into their Spotify and it doesn't require work on their part to visualize stuff
-\end{itemize}
+\subsection{Third-party Applications}
 
-\section{Process}
+Many third-party services exist to utilize the data available from using a music streaming service. One of the more popular services is Last.fm, which gives users an interface to explore their data upon connecting to their streaming service. This has spawned applications such as \cite{Pre08,Dan12}, which use Last.fm's API to allow users to explore their personal data.
+These services, however, either require a lot of upfront effort from the user to use their service (such as registering an account)\eysa{what's a better way to phrase this?} or provide \emph{too much} data and can be difficult for a user to process.
+
+Another popular class of third-party applications are simply scripts written by curious programmers, such as \cite{Boe16}. It is hardly surprising that many casual programmers, noticing the abundance of data and lack of existing popular visualization, whip up scripts visualizing their personal data and make the code available for others. This class of applications suffers from similar drawbacks to services using Last.fm. These mostly lack web interfaces, which results in work for a user to download and figure out how to run scripts. Additionally, these applications mostly try to visualize as much as possible, which can be an overwhelming amount of data for a user.
+
+\section{Design Process}
 
 \subsection{User Interviews}
 
@@ -240,8 +211,13 @@ Outline:
 
 Modifications based on usability testing:
 \begin{itemize}
-  \item Freeze the stream graph at the top of the page and allow scrolling
-  \item 
+  \item Moved stream graph and track/artist columns horizontally; took advantage of most desktop screens being wider than taller and placed things on the side
+  \item Added an "other" category for genre; not having an "other" category previously made for some stream graphs appearing to get smaller in mid ranges; compromise to not overload graph with too many colors but not lose the data
+  \item Added titles to the track/artist columns
+  \item Changed genre encodings on artist to circles; artists may have many genres associated with them, so this eliminates lines overflowing over other text
+  \item Added fade/bolding across artist columns to better visualize relationships across columns
+  \item Added description at the bottom to explain the visualization
+  \item Added tooltip walkthrough to explain how the visualization works
 \end{itemize}
 
 Outline:
@@ -269,6 +245,9 @@ Future directions include:
 \begin{itemize}
   \item Computing over the data
   \item How can we make it easier for people to compare?
+  \begin{enumerate}
+    \item Maybe change genre color scheme to be the same for each genre rather than same colors for each user?
+  \end{enumerate}
 \end{itemize}
 
 %% if specified like this the section will be committed in review mode
