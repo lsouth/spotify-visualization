@@ -131,7 +131,7 @@
 
 \maketitle
 
-Spotify is one of the most popular music streaming service, but the app does not currently provide users with a way to view their personal listening history. Several third-party apps allow users to see their personal listening data, but none fully utilize the power of data visualizations to convey information. In this work we create an interactive data visualization using information available from the Spotify API to help users better understand their personal listening patterns.
+Spotify is one of the most popular music streaming service, with 207 million monthly active users in 2018. The app does not currently provide users with a way to view their personal listening history despite the popularity of its annual end of year visualization, which provides users a high-level overview of a their listening habits for the year. Several third-party apps allow users to see their personal listening data, but none fully utilize the power of data visualizations to convey information. In this work we create an interactive data visualization using information available from the Spotify API to help users better understand their personal listening patterns.
 
 \section{Related Works}
 Many applications exist to visualization a user's Spotify listening history, with usages and data being displayed varying. We will consider the related works as two broad categories: (1) Spotify's official end of year visualization and (2) third-party applications.
@@ -151,18 +151,11 @@ Another popular class of third-party applications are simply scripts written by 
 
 \section{Design Process}
 
-\subsection{User Interviews}
-
-We first interviewed potential users of our visualization to determine tasks to prioritize in our design. Nine short interviews with people of varying listening habits were conducted to prevent overfitting to a single person's preferences. The interviews consisted of asking about (1) listening habits, (2) how they have previously interacted with music history visualizations if at all, (3) data they're interested in visualizing, and (4) data they're not interested in being visualized. Summaries of responses are reported in %\autoref{}
-
-Potential User Interview Outline:
-\begin{itemize}
-  \item Wanted to get an idea of the listening habits of different users, what they're interested in, what they liked and didn't like about visualizations they've used before
-  \item Conducted nine short interviews with potential users
-  \item Summary of results
-\end{itemize}
-
 \subsection{Task Analysis}
+
+\input{tab_interviews}
+
+In order to determine tasks to prioritize in our design, we interviewed potential users of our visualization. Nine short interviews with people of varying listening habits were conducted to prevent overfitting to a single person's preferences. The interviews consisted of asking about (1) listening habits, (2) previous interactions with personalized music history visualizations, if at all, (3) data they're interested in visualizing, and (4) data they're not interested in being visualized. Summaries of responses are reported in \autoref{tab:interviews}.
 
 From our interviews, we determined our domain goals to be the following:
 \begin{enumerate}
@@ -183,7 +176,7 @@ Data Acquisition and Exploratory Analysis Outline:
 \section{Design}
 
 \subsection{Mockup}
-\input{mockup_fig}
+\input{fig_mockup}
 
 Design outline:
 \begin{itemize}
@@ -205,7 +198,7 @@ Outline:
   \item How to visualize genres in stream graph without overloading it?
 \end{itemize}
 
-\input{prelim_fig}
+\input{fig_prelim}
 
 \subsection{Final Design}
 
