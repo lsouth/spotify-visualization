@@ -27,8 +27,8 @@ function createTopTracks(tracks, timeframe, genre_array){
   tracks = tracks.slice(0, 10)
   for (track of tracks) {
     //track['audio_features'].then(d => console.log(d))
-    track.val1 = track["audio_features"]["danceability"] * 100;
-    track.val2 = track["audio_features"]["acousticness"] * 100;
+    track.val1 = Math.random()*100;
+    track.val2 = Math.random()*100;
     track.val3 = Math.random()*100
   }
 
