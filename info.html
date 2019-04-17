@@ -17,8 +17,18 @@
         This was produced as a final project for Michelle Borkin's Spring 2019 course CS 7250 by Sara Di Bartolomeo, Eysa Lee, Amogh Pradeep, and Laura South (ordered alphabetically).
         <br><br>
         <h3>Motivation</h3>
+        Although Spotify is one of the most popular music streaming services, the app does not currently provide users with a way to view their personal listening history. Several third-party apps allow users to see their personal listening data, but none fully utilize the power of data visualizations to convey information. Most simply provide a static list of the user's top tracks with no interactivity or exploratory capabilities. In this work we create an interactive data visualization using information available from the Spotify API to help users better understand their personal listening patterns. 
         <br><br>
         <h3>Data</h3>
+        All data used in this project is acquired using the <a href="https://developer.spotify.com/documentation/web-api/">Spotify Web API</a>.
+        Each user first logs in to the Spotify platform and provides our webapp with authorization to fetch their public playlists, top tracks, top artists, and recently played list.
+        Each list contains information regarding the artists/tracks depending on which request is performed.
+        Using this information, we built our visualzation.
+        All data is fetched from Spotify and processed by our browser app, thus, our website itself never handles any user data.
+        We believe that this feature helps keep user data private and is an added benifit to using our visualization.
+        <br>
+        All data is fetched using <a href="https://developer.mozilla.org/en-US/docs/Web/API/XMLHttpRequest">XML HTTP Requests</a>; the data itself is in JSON format.
+        We fetch data entry in batches of 50 elements, as this is the limit the Spotify API specifies.
         <br><br>
         <h3>Task Analysis</h3> <!-- Summary of interview and task table -->
         
@@ -31,14 +41,21 @@
 
         <br><br>
         <h3>Final Visualization</h3>
+        
         <br><br>
         <h3>Data Analysis</h3>
+        Data analysis is a personal process using our platform.
+        Our tool is essentially an exploration tool that permits users to analyze their personal music-listening patterns.
+        An example is that, on using the visualization tool, one of the authors found that their top artist has consistently stayed <a href="https://www.zhumusic.com/">ZHU</a> across all time periods we visualize.
+        Thus, each person would have their own set of finding on using this tool.
+        We urge the reader to use our tool to figure out your own music-listening patterns and hpe you enjoy it!
         <br><br>
         <h3>Conclusion</h3> <!-- Short summary of work completed and areas for improvement/future-work -->
         In this work we 
         <br><br>
-        <h2>Demo Video</h2>
+        <!-- <h2>Demo Video</h2>
         to do
-        <br><br>
+        <br><br> -->
+    </div>
   </body>
 </html>
