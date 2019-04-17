@@ -163,6 +163,15 @@ init_streamgraph = (full_data, genre_list) => {
 	div2.style.maxWidth = width/3 + 'px'
 	div2.style.fontSize = 'small'
 	div.append(div2)
+	a = document.createElement("a")
+	a.href = "./info.html"
+	a.innerHTML = "Click here for more info!"
+	a.style.borderRadius='25px';
+	a.style.fontSize = 'small'
+	a.style.color = lightcolor;
+	a.style.border= '2px solid '+lightcolor;
+	a.style.padding= '5px';
+	div.append(a)
 	document.body.append(div)
 }
 
