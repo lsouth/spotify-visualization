@@ -1760,26 +1760,28 @@ function initSpotifyWebApi() {
         // Set token
         let _token = hash.access_token;
 
-        const authEndpoint = 'https://accounts.spotify.com/authorize';
-
-        var token = "";
-
-        const clientId = "ee2959225dcc4ceabddef69875f957ec";
-        const redirectUri = "https://pages.github.ccs.neu.edu/lsouth/spotify-visualization/index.html";
-
-        const scopes = [
-            'user-top-read',
-            'user-read-recently-played',
-        ];
+        // Redirection handler before spotify login.
+        const redirectUri = "https://lsouth.github.io/spotify-visualization/redirect_handler.html"
 
         // If there is no token, redirect to Spotify authorization
         if (!_token) {
-            window.location = `${authEndpoint}?client_id=${clientId}&redirect_uri=${redirectUri}&scope=${scopes.join('%20')}&response_type=token&show_dialog=true`;
+             window.location = `${redirectUri}`;
         } else {
             var s = new SpotifyWebApi();
             s.setAccessToken(_token);
             return s;
         }
+}
+
+function doAuthRedirect() {
+    const authEndpoint = 'https://accounts.spotify.com/authorize';
+    const clientId = "ee2959225dcc4ceabddef69875f957ec";
+    const redirectUri = "https://lsouth.github.io/spotify-visualization/";
+    const scopes = [
+        'user-top-read',
+        'user-read-recently-played',
+    ];
+    window.location = `${authEndpoint}?client_id=${clientId}&redirect_uri=${redirectUri}&scope=${scopes.                            join('%20')}&response_type=token&show_dialog=true`;
 }
 
 var FETCHED_LIST = [];
