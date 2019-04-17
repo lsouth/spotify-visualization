@@ -22,11 +22,13 @@ function createTopTracks(tracks, timeframe, genre_array){
   selection.append("text").text(scales.timeframe(timeframe))
     .attr('font-size', 'medium')
 
+
   // HACKY THING
-  tracks = tracks.slice(0, 16)
+  tracks = tracks.slice(0, 10)
   for (track of tracks) {
-    track.val1 = Math.random()*100
-    track.val2 = Math.random()*100
+    //track['audio_features'].then(d => console.log(d))
+    track.val1 = track["audio_features"]["danceability"] * 100;
+    track.val2 = track["audio_features"]["acousticness"] * 100;
     track.val3 = Math.random()*100
   }
 
@@ -46,7 +48,6 @@ function createTopTracks(tracks, timeframe, genre_array){
         .transition()
         .duration(500)
         .style('fill', darkcolor)
-
       d3.select(this)
         .transition()
         .duration(502)
@@ -58,7 +59,6 @@ function createTopTracks(tracks, timeframe, genre_array){
         .transition()
         .duration(500)
         .style('fill', darkcolor)
-
       svg.selectAll(".artist-" + d.artists[0].id)
         .transition()
         .duration(502)
@@ -84,22 +84,40 @@ function createTopTracks(tracks, timeframe, genre_array){
    
 
       // POPULARITY LINE
+  gtracks.append('text')
+    .attr("class", "popularitytext")
+    .attr("x", 0)
+    .attr("y", d => 15)
+    .style("fill", "#584b32")
+    .style("font-size", "x-small")
+    .attr("class", "textval1")
+    .text(d => "danceability")
+
   gtracks.append('line')
     .attr("x1", 0)
     .attr("x2", d => 0)
-    .attr("y1", d => 12)
-    .attr("y2", d => 12)
+    .attr("y1", d => 27)
+    .attr("y2", d => 27)
     .style("stroke", "#FBE6C0")
     .style("stroke-width", 5)
     .attr("class", "lineval1")
     .style("opacity", 0)
     .style("stroke-linecap", "round")
 
+  gtracks.append('text')
+    .attr("class", "popularitytext")
+    .attr("x", 0)
+    .attr("y", d => 30)
+    .style("fill", "#584b32")
+    .style("font-size", "x-small")
+    .attr("class", "textval1")
+    .text(d => Math.round(d.val1))
+
   gtracks.append('line')
     .attr("x1", 0)
     .attr("x2", d => 0)
-    .attr("y1", d => 24)
-    .attr("y2", d => 24)
+    .attr("y1", d => 46)
+    .attr("y2", d => 46)
     .style("stroke", "#FBE6C0")
     .style("stroke-width", 5)
     .attr("class", "lineval2")
@@ -109,16 +127,16 @@ function createTopTracks(tracks, timeframe, genre_array){
   gtracks.append('text')
     .attr("class", "popularitytext")
     .attr("x", 0)
-    .attr("y", d => 15)
+    .attr("y", d => 42)
     .style("fill", "#584b32")
+    .attr("class", "textval2")
     .style("font-size", "x-small")
-    .attr("class", "textval1")
-    .text(d => Math.round(d.val1))
+    .text(d => "acoustics")
 
-  gtracks.append('text')
+    gtracks.append('text')
     .attr("class", "popularitytext")
     .attr("x", 0)
-    .attr("y", d => 30)
+    .attr("y", d => 52)
     .style("fill", "#584b32")
     .attr("class", "textval2")
     .style("font-size", "x-small")
@@ -207,7 +225,7 @@ function createTopArtists(artists, timeframe, genre_array){
   let selection = d3.select("#top-artists-" + timeframe);
   selection.append("text").text(scales.timeframe(timeframe))
 
-  artists = artists.slice(0, 16)
+  artists = artists.slice(0, 10)
 
   gartists = selection.selectAll('.gartist')
     .data(artists)
@@ -251,8 +269,8 @@ function createTopArtists(artists, timeframe, genre_array){
   gartists.append('line')
     .attr("x1", 0)
     .attr("x2", d => 0)
-    .attr("y1", d => 16)
-    .attr("y2", d => 16)
+    .attr("y1", d => 26)
+    .attr("y2", d => 26)
     .style("stroke", "#FBE6C0")
     .style("stroke-width", 5)
     .style("opacity", 0)
@@ -260,8 +278,16 @@ function createTopArtists(artists, timeframe, genre_array){
 
   gartists.append('text')
     .attr("class", "popularitytext")
+    .attr("x", -2)
+    .attr("y", d => 15)
+    .style("fill", "#584b32")
+    .style("font-size", "x-small")
+    .text(d => 'popularity')
+
+  gartists.append('text')
+    .attr("class", "popularitytext")
     .attr("x", 0)
-    .attr("y", d => 20)
+    .attr("y", d => 30)
     .style("fill", "#584b32")
     .style("font-size", "x-small")
     .text(d => Math.round(d.popularity*100)/100)
