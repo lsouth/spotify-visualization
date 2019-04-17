@@ -133,7 +133,7 @@
 
 \maketitle
 
-Spotify is one of the most popular music streaming service, with 207 million monthly active users in 2018. The app does not currently provide users with a way to view their personal listening history despite the popularity of its annual end of year visualization, which provides users a high-level overview of a their listening habits for the year. Several third-party apps allow users to see their personal listening data, but none fully utilize the power of data visualizations to convey information. In this work we create an interactive data visualization using information available from the Spotify API to help users better understand their personal listening patterns.
+Spotify is one of the most popular music streaming service, with 207 million monthly active users in 2018. The app does not currently provide users with a way to view their personal listening history despite the popularity of its annual end of year visualization, which provides users a high-level overview of a their listening habits for the year. Several third-party apps allow users to see their personal listening data, but none fully utilize the power of data visualizations to convey information. In this work we create an interactive data visualization using information available from the Spotify API to help users better understand their personal listening patterns.\eysa{this intro needs a lot of help}
 
 \section{Related Works}
 Many applications exist to visualization a user's Spotify listening history, with usages and data being displayed varying. We will consider the related works as two broad categories: (1) Spotify's official end of year visualization and (2) third-party applications.
@@ -155,18 +155,27 @@ Another popular class of third-party applications are simply scripts written by 
 
 \subsection{Task Analysis}
 
-In order to determine tasks to prioritize in our design, we interviewed potential users of our visualization. Nine short interviews with people of varying listening habits were conducted to prevent overfitting to a single person's preferences. The interviews consisted of asking about (1) listening habits, (2) previous interactions with personalized music history visualizations, if at all, (3) data they're interested in visualizing, and (4) data they're not interested in being visualized. While all of the responses were unique and many of the users interviewed had vastly different ideas of what they would want out of a music history visualization, four main points appeared in many of the interviews. These four main points and each user's stance on these points are summarized in \autoref{tab:interviews}.
+In order to determine tasks to prioritize in our design, we interviewed potential users of our visualization. Nine short interviews with people of varying listening habits were conducted to prevent overfitting to a single person's preferences. The interviews consisted of asking about listening habits, previous interactions with personalized music history visualizations (if at all), data they're interested in visualizing, and data they're not interested in being visualized. While all of the responses were unique and many of the users interviewed had vastly different ideas of what they would want out of a music history visualization, four main points appeared in many of the interviews: (1) `typical' personal statistics, (2) `interesting' statistics, (3) ability to compare data with others, and (4) change in music habits over time. 
+`Typical' statistics include top artists, top tracks, amount of time spent listening to music over a certain period, and other statistics commonly shown by music history visualizations. A few people were creative in what they imagined could be visualized, and we lumped those suggestions into a category of `interesting' statistics. 
+These four main points and each user's stance on these points are summarized in \autoref{tab:interviews}.
 
 \input{tab_interviews}
 
-From our interviews, we determined our domain goals to be enabling users to view daily listening history split by genre, view recent top artists/tracks, and compare listening histories between users. The domain goals, abstract tasks, and priorities for the tasks can be found in \autoref{tab:taskanalysis}.
+Something to note about the results of our interviews was that there is almost an equal number of interviewees only interested in the data in the context of comparing against others and interviewees interested in the results independent of others. This was a surprising result, as we had not previously considered the social aspect of visualizing music history. In determining our domain goals, we aimed for the tool to support use alone and in a social context. Between the two, we prioritized solo use since comparison could be done in an ad hoc manner by users more easily than the other way around. 
+A full summary of our domain goals can be found in \autoref{tab:taskanalysis}.
 
 \input{tab_taskanalysis}
 
+We refined our domain goals for the solo tool to address the applicable main categories from our interviews, namely exploring personal statistics and change in music habits over time. The scope of visualizing change in music habits was narrowed down to be daily listening history split by genre, and viewing personal statistics was specified to be viewing top artists/tracks. These goals, while chosen with the user interviews in mind, were partially influenced by technical constraints of the Spotify API. Discussion on these constraints appear in \autoref{sec:dataexplore}.
 
-\eysa{todo: add discussion about these domain goals}
 
-\subsection{Data Acquisition and Exploratory Analysis}
+\subsection{Data Acquisition and Exploratory Analysis}\label{sec:dataexplore}
+
+We chose the use the Spotify API to fetch user data and tested the feasibility of our ideas by performing a preliminary exploratory analylsis. 
+While we found song and artist data fetched by the Spotify API to be detailed, the Spotify API is limited in user-specific data that can be easily retrieved. The API allows retrieving statistics such as top tracks/artists and recently played tracks but do not provide details such as number of plays or tracks played during a specific window. 
+
+We discovered getting the breakdown of music by day or hour requires retrieving many batches of last played\eysa{todo: more discussion on limitations on granularity our visualizations can display; getting `interesting' statistics required hacky solutions, which ruled out many interesting thigns we had considered visualizing}
+
 Data Acquisition and Exploratory Analysis Outline:
 \begin{itemize}
   \item Tested fetching data using Spotify API, generally didn't find bad data
@@ -176,20 +185,22 @@ Data Acquisition and Exploratory Analysis Outline:
 \section{Design}
 
 \subsection{Mockup}
+
+Created a mockup of our tool.
+Mockup of our design complete with interactions can be found in \autoref{fig:interactions}. 
+
 \input{fig_mockup}
 
-Design outline:
-\begin{itemize}
-  \item Captured our domain goals in the final sketch of what we wanted\eysa{can add the final sketches}. Interactions with these sketches can be seen in \autoref{fig:interactions}
-  \item Talk about how the sketch accomplishes our domain goals
-  \begin{itemize}
-    \item We prioritized the first two domain goals because user interviews indicated people cared more about personal data
-  \end{itemize}
-  \item Changes between sketch and implementation. Was there anything we changed based on classmates testing our preliminary design
-  \item Implementation (screenshot and description)
-\end{itemize}
+\eysa{todo: come back and expand this section. Can talk more about the mockup and how they accomplish the domain goals}
+Static mockup (\autoref{fig:static_mockup}) has a stream graph displaying genres split by day and top tracks/artists in short, medium, and long term. \autoref{fig:genre_interaction} shows hoving over a genre in the stream graph, \autoref{fig:artist_interaction} shows hovering over an artist, and \autoref{fig:track_interaction} shows hovering over a track.
+
 
 \subsection{Preliminary Usability Testing}
+
+Implemented our preliminary design; it matched our mockup closely and the exact design can be found in \autoref{fig:prelim_design}.
+
+We conducted a usability test with this design. The usability testing consisted introducing our project and asking classmates to explore the visualization. Despite test users admitting to being familiar with our project from in-class presentations, many struggled with identifying the data encoded in the visualization and the interactions. Many found the visualization aesthetically appealing and enjoyed the color scheme, but found interactions such as highlighting hard to see \eysa{say that bolding didn't stand out much because we forgot to implement non-highlighted parts fading}. \eysa{Users also pointed out that columns were not labeled and there was no title to indicate if the visualization is a prediction or history.} \eysa{In testing the design, we observed that users struggled to see the bottom of the list and the stream graph at the same time.} \eysa{We also discovered that Spotify likes to tag lots and lots of genres and the stream graph was easily overloaded with too many genres being plotted.}
+
 Outline:
 \begin{itemize}
   \item Explain how we conducted our usability tests (Introduced our project and asked users to play around with the visualization; asked users if they could identify what particular things were supposed to represent)
@@ -236,11 +247,14 @@ Discussion outline:
 
 Future directions include:
 \begin{itemize}
+  \item Implementing song statistics; current numbers are placeholders
   \item Computing over the data
   \item How can we make it easier for people to compare?
   \begin{enumerate}
     \item Maybe change genre color scheme to be the same for each genre rather than same colors for each user?
   \end{enumerate}
+  \item Walkthrough to introduce users how to use/read the tool
+  \item Landing page
 \end{itemize}
 
 %% if specified like this the section will be committed in review mode
